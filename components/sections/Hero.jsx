@@ -8,10 +8,10 @@ export const Hero = () => {
   return (
     <main className="flex-1 w-full overflow-hidden">
       {/* Hero Section */}
-      <section className="pt-16 pb-12 sm:pt-24 sm:pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center animate-in fade-in slide-in-from-bottom-4 duration-700 min-h-[60vh] flex flex-col justify-center items-center">
+      <section className="pt-20 pb-16 sm:pt-32 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center animate-in fade-in slide-in-from-bottom-4 duration-700 min-h-[85vh] flex flex-col justify-center items-center">
         <Heading
           level="h1"
-          className="text-[2.25rem] sm:text-[3.25rem] lg:text-[4rem] leading-[1.1] font-bold text-[#1f2937] border-0 mb-6 tracking-tight px-1"
+          className="text-[2.25rem] sm:text-[3.5rem] lg:text-[4.5rem] leading-[1.05] font-bold text-[#1f2937] border-0 mb-8 tracking-tight px-1 max-w-4xl"
         >
           Turn Ideas into Integrated Systems. Instantly
           <span className="text-[#e25d24]">.</span>
@@ -19,7 +19,7 @@ export const Hero = () => {
 
         <Paragraph
           size="lg"
-          className="text-gray-500 mb-8 max-w-3xl mx-auto text-[15px] sm:text-lg lg:text-xl px-4 leading-relaxed"
+          className="text-gray-500 mb-12 max-w-3xl mx-auto text-[16px] sm:text-xl lg:text-2xl px-4 leading-relaxed"
         >
           The first multi-agent SDLC platform that designs, builds
           <br className="hidden sm:block" /> and deploys production-ready
