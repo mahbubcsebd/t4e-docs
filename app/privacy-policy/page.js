@@ -16,7 +16,18 @@ const PrivacyPolicy = () => {
       />
 
       {/* Content */}
-      <article className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+      <article className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        {/* Back Link */}
+        <Link 
+          href="/" 
+          className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-[#e25d24] transition-colors mb-8 group"
+        >
+          <span className="w-8 h-8 rounded-full border border-gray-100 flex items-center justify-center group-hover:border-[#e25d24]/20 group-hover:bg-[#e25d24]/5">
+            ←
+          </span>
+          Back to Home
+        </Link>
+
         {/* Meta info */}
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-[13px] text-gray-400 mb-10 pb-8 border-b border-gray-100">
           <span>Effective Date: <strong className="text-gray-600">April 13, 2026</strong></span>
