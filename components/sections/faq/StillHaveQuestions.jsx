@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Mail, ChevronDown } from 'lucide-react';
+import { MessageCircle, Mail, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -25,10 +25,10 @@ export const StillHaveQuestions = () => {
                 Contact Us
               </Link>
             </Button>
-            <Button asChild variant="outline" className="h-11 px-8 border-gray-100 bg-white hover:bg-gray-50 text-gray-700 rounded-md font-bold text-[13px] active:scale-[0.98] transition-all">
-              <Link href="/pricing" className="flex items-center gap-2">
-                 <ChevronDown size={16} className="-rotate-90 text-[#5c67f2]" />
-                 View Pricing
+            <Button asChild className="h-11 px-8 bg-[#e25d24] hover:bg-[#c94f1d] text-white rounded-md font-bold text-[13px] shadow-lg shadow-orange-500/15 active:scale-[0.98] transition-all">
+              <Link href="/" className="flex items-center gap-2">
+                <Rocket size={16} />
+                Get Early Access
               </Link>
             </Button>
           </div>

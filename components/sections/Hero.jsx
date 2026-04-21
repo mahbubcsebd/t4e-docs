@@ -8,10 +8,10 @@ export const Hero = () => {
   return (
     <main className="flex-1 w-full overflow-hidden">
       {/* Hero Section */}
-      <section className="pt-20 pb-16 sm:pt-32 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center animate-in fade-in slide-in-from-bottom-4 duration-700 min-h-[85vh] flex flex-col justify-center items-center">
+      <section className="pt-10 pb-8 sm:pt-16 sm:pb-10 lg:pt-20 lg:pb-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center animate-in fade-in slide-in-from-bottom-4 duration-700 flex flex-col justify-center items-center">
         <Heading
           level="h1"
-          className="text-[2.25rem] sm:text-[3.5rem] lg:text-[4.5rem] leading-[1.05] font-bold text-[#1f2937] border-0 mb-8 tracking-tight px-1 max-w-4xl"
+          className="text-[1.75rem] sm:text-[2.75rem] md:text-[3rem] lg:text-[3.75rem] leading-[1.1] sm:leading-[1.05] font-bold text-[#1f2937] border-0 mb-6 sm:mb-8 tracking-tight px-1 max-w-[90vw] sm:max-w-none"
         >
           Turn Ideas into Integrated Systems. Instantly
           <span className="text-[#e25d24]">.</span>
@@ -19,7 +19,7 @@ export const Hero = () => {
 
         <Paragraph
           size="lg"
-          className="text-gray-500 mb-12 max-w-3xl mx-auto text-[16px] sm:text-xl lg:text-2xl px-4 leading-relaxed"
+          className="text-gray-500 mb-8 sm:mb-12 max-w-3xl mx-auto text-[14px] sm:text-lg lg:text-2xl px-2 sm:px-4 leading-relaxed"
         >
           The first multi-agent SDLC platform that designs, builds
           <br className="hidden sm:block" /> and deploys production-ready
@@ -28,7 +28,7 @@ export const Hero = () => {
 
         <Button
           variant="orange"
-          className="text-base font-semibold px-8 h-12 transition-all rounded-md w-full sm:w-auto shadow-lg shadow-orange-500/20"
+          className="text-sm sm:text-base font-semibold px-6 sm:px-8 h-11 sm:h-12 transition-all rounded-md w-full sm:w-auto shadow-lg shadow-orange-500/20 w-auto"
         >
           Get Early Access
         </Button>

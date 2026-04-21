@@ -10,8 +10,8 @@ const faqData = [
     category: 'Platform',
     items: [
       {
-        question: "What is the SDLC Engineering Platform?",
-        answer: "The SDLC Engineering Platform is a comprehensive solution designed to streamline your entire software development lifecycle. It provides tools and workflows for planning, building, testing, deploying, and monitoring your software projects — all in one unified platform."
+        question: "What is the multi-agent SDLC Platform?",
+        answer: "The multi-agent SDLC Platform is a comprehensive solution designed to streamline your entire software development lifecycle. It provides tools and workflows for planning, building, testing, deploying, and monitoring your software projects — all in one unified platform."
       },
       {
         question: "Which programming languages and frameworks are supported?",
@@ -23,7 +23,7 @@ const faqData = [
       },
       {
         question: "Is the platform available as a cloud or self-hosted solution?",
-        answer: "We offer both options. Our cloud-hosted solution is fully managed and available immediately. For organizations with specific compliance or infrastructure requirements, we offer a self-hosted deployment option with the Enterprise tier."
+        answer: "Our solution is fully managed and available immediately. For organizations with specific compliance or infrastructure requirements."
       },
       {
         question: "What is the uptime SLA for the platform?",
@@ -38,13 +38,10 @@ const faqData = [
         question: "What pricing tiers are available?",
         answer: "We offer three main tiers: Builders (Free/Individuals), Partners (Professional teams), and Enterprise (Custom solutions). Visit our pricing page for more details."
       },
-      {
-        question: "Is there a free trial available?",
-        answer: "Yes! We offer a 14-day free trial of our Partners plan with no credit card required. Our Builders plan is also free forever for individual developers."
-      },
+
       {
         question: "Can I change my plan later?",
-        answer: "Absolutely. You can upgrade or downgrade your plan at any time. Changes take effect at the start of the next billing cycle."
+        answer: "For those on the ThinkNew Plan (solo developers, freelancers, founders, and small builder teams shipping AI-powered products, you can upgrade your plan any time. Changes take effect at the start of the next billing cycle. For Those on the ThinkBig or ThinkBlue plans, individual contract terms govern plan and pricing adjustments."
       }
     ]
   },
@@ -64,8 +61,8 @@ const faqData = [
         answer: "Yes, we provide migration tools and import utilities for common platforms including Jira, Trello, Asana, and GitHub Projects. Our team can also assist with custom migrations for Enterprise customers."
       },
       {
-        question: "What training resources available?",
-        answer: "We provide comprehensive training resources: Interactive documentation and tutorials, video walkthroughs and webinars, in-app guided tours, community forums and knowledge base, and live training sessions (for Partners & Enterprise tiers)."
+        question: "What training resources are available?",
+        answer: "We provide web-based documentation, tutorials, video walkthroughs. Live training sessions are available (for Partners & Enterprise tiers)."
       },
       {
         question: "How do I invite my team members?",
@@ -78,16 +75,13 @@ const faqData = [
     items: [
       {
         question: "What support channels are available?",
-        answer: "Support varies by plan. Builders: Email support with 24-hour response time. Partners: Priority email and chat support with 4-hour response time during business hours. Enterprise: 24/7 dedicated support with 1-hour response time for critical issues."
+        answer: "Support varies by plan. Independents are self-serve with access to our online help portal. Partners and Enterprise customers have access to our sales and support team who can address your needs directly — reach out to your contact or submit a request through the portal."
       },
       {
         question: "How do I submit a support ticket?",
         answer: "You can submit support tickets directly from your Customer Portal under the Support Tickets section. You can also email support@think4ever.com. All tickets are tracked and you will receive updates via email and in your portal."
       },
-      {
-        question: "What is your SLA for ticket resolution?",
-        answer: "Our SLA targets by priority: Critical (P1): 1-hour response, 4-hour resolution; High (P2): 4-hour response, 1 business day resolution; Medium (P3): 8-hour response, 3 business day resolution; Low (P4): 24-hour response, 5 business day resolution."
-      },
+
       {
         question: "Can I request a feature or report a bug?",
         answer: "Absolutely! We welcome feedback. You can submit feature requests and bug reports through the support ticket system in your portal. We also have a public roadmap where you can vote on upcoming features."

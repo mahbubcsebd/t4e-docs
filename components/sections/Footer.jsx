@@ -10,6 +10,12 @@ export const Footer = () => {
             Home
           </Link>
           <Link
+            href="/product"
+            className="hover:text-white transition-colors"
+          >
+            Product
+          </Link>
+          <Link
             href="/#build-new"
             className="hover:text-white transition-colors"
           >
@@ -37,8 +43,7 @@ export const Footer = () => {
 
         {/* Copyright */}
         <div className="text-[12px] tracking-wide opacity-60">
-          © {new Date().getFullYear()} think4ever. Entire systems, delivered
-          instantly.
+          © {new Date().getFullYear()} Think4ever™. All rights reserved.
         </div>
       </div>
     </footer>

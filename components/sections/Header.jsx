@@ -25,10 +25,19 @@ import {
 } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import Logo from '@/public/assets/images/think4ever-logo.png';
-import { Briefcase, Building, Cloud, Code, Cpu, Layers, Menu, Zap } from 'lucide-react';
+import {
+  Briefcase,
+  Building,
+  Cloud,
+  Code,
+  Cpu,
+  Layers,
+  Menu,
+  Zap,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 
 const PRODUCT_DATA = [
@@ -36,20 +45,20 @@ const PRODUCT_DATA = [
     title: 'Multi-Agent SDLC',
     desc: 'The first platform that designs and builds entire systems.',
     href: '/#build-new',
-    icon: Zap
+    icon: Zap,
   },
   {
     title: 'AI Orchestration',
     desc: 'Deploy complex ideas at the speed of thought.',
     href: '/#modernize-existing',
-    icon: Cpu
+    icon: Cpu,
   },
   {
     title: 'Full System View',
     desc: 'Map and manage dependencies automatically.',
     href: '/#integrations',
-    icon: Layers
-  }
+    icon: Layers,
+  },
 ];
 
 const SOLUTIONS_DATA = {
@@ -145,6 +154,7 @@ ListItem.displayName = 'ListItem';
 
 export const Header = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   const isActive = (path) => pathname === path;
 
@@ -153,16 +163,19 @@ export const Header = () => {
       {/* Logo */}
       <Link
         href="/"
-        className="flex items-center gap-1.5 font-bold tracking-tight cursor-pointer relative z-50 shrink-0"
+        className="flex items-center gap-0 font-bold tracking-tight cursor-pointer relative z-50 shrink-0"
       >
         <Image
           src={Logo}
-          alt="Logo"
+          alt="Think4ever"
           width={180}
           height={45}
           className="w-auto h-9 sm:h-11"
           priority
         />
+        <span className="text-[16px] sm:text-[20px] font-bold text-gray-500 -ml-0.5 mt-0.5 self-start">
+          ™
+        </span>
       </Link>
 
       {/* Desktop Navigation */}
@@ -174,10 +187,10 @@ export const Header = () => {
                 <NavigationMenuLink
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    isActive('/') 
-                      ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]' 
+                    isActive('/')
+                      ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
                       : 'text-gray-500 hover:text-gray-900 bg-transparent',
-                    'font-semibold px-4 transition-colors'
+                    'font-semibold px-4 transition-colors',
                   )}
                 >
                   Home
@@ -186,14 +199,33 @@ export const Header = () => {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className={cn(
-                "transition-colors",
-                isActive('/product') ? "text-gray-900" : "text-gray-500 hover:text-gray-900"
-              )}>
+              <NavigationMenuTrigger
+                className={cn(
+                  'transition-colors cursor-pointer',
+                  isActive('/product')
+                    ? 'text-gray-900'
+                    : 'text-gray-500 hover:text-gray-900',
+                )}
+                onClick={() => router.push('/product')}
+              >
                 Product
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-2 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                  <li className="col-span-full">
+                    <Link
+                      href="/product"
+                      className="block select-none rounded-lg p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground bg-gradient-to-br from-[#e25d24]/5 to-orange-50 border border-[#e25d24]/10"
+                    >
+                      <div className="text-sm font-bold text-[#1f2937] mb-1">
+                        How It Works
+                      </div>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        Seven connected steps from idea to production-ready
+                        system.
+                      </p>
+                    </Link>
+                  </li>
                   {PRODUCT_DATA.map((item) => (
                     <ListItem
                       key={item.title}
@@ -209,10 +241,14 @@ export const Header = () => {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className={cn(
-                "transition-colors",
-                pathname.startsWith('/#') || isActive('/') ? "text-gray-900" : "text-gray-500 hover:text-gray-900"
-              )}>
+              <NavigationMenuTrigger
+                className={cn(
+                  'transition-colors',
+                  pathname.startsWith('/#') || isActive('/')
+                    ? 'text-gray-900'
+                    : 'text-gray-500 hover:text-gray-900',
+                )}
+              >
                 Solutions
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -295,10 +331,10 @@ export const Header = () => {
                 <NavigationMenuLink
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    isActive('/pricing') 
-                      ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]' 
+                    isActive('/pricing')
+                      ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
                       : 'text-gray-500 hover:text-gray-900 bg-transparent',
-                    'font-medium transition-colors'
+                    'font-medium transition-colors',
                   )}
                 >
                   Pricing
@@ -311,10 +347,10 @@ export const Header = () => {
                 <NavigationMenuLink
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    isActive('/faq') 
-                      ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]' 
+                    isActive('/faq')
+                      ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
                       : 'text-gray-500 hover:text-gray-900 bg-transparent',
-                    'font-medium transition-colors'
+                    'font-medium transition-colors',
                   )}
                 >
                   FAQ
@@ -327,10 +363,10 @@ export const Header = () => {
                 <NavigationMenuLink
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    isActive('/contact-us') 
-                      ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]' 
+                    isActive('/contact-us')
+                      ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
                       : 'text-gray-500 hover:text-gray-900 bg-transparent',
-                    'font-medium transition-colors'
+                    'font-medium transition-colors',
                   )}
                 >
                   Contact Us
@@ -366,14 +402,17 @@ export const Header = () => {
             <SheetHeader className="p-6 border-b text-left shrink-0">
               <SheetTitle>
                 <SheetClose asChild>
-                  <Link href="/" className="inline-block">
+                  <Link href="/" className="inline-flex items-center gap-0">
                     <Image
                       src={Logo}
-                      alt="Logo"
+                      alt="Think4ever"
                       width={140}
                       height={35}
                       className="w-auto h-8"
                     />
+                    <span className="text-[12px] font-bold text-gray-500 -ml-0.5 mt-0.5 self-start">
+                      ™
+                    </span>
                   </Link>
                 </SheetClose>
               </SheetTitle>
@@ -387,8 +426,8 @@ export const Header = () => {
                     <Link
                       href="/"
                       className={cn(
-                        "flex py-3 text-[18px] font-bold transition-colors",
-                        isActive('/') ? "text-[#3b82f6]" : "text-gray-900"
+                        'flex py-3 text-[18px] font-bold transition-colors',
+                        isActive('/') ? 'text-[#3b82f6]' : 'text-gray-900',
                       )}
                     >
                       Home
@@ -403,6 +442,19 @@ export const Header = () => {
                   </AccordionTrigger>
                   <AccordionContent className="pt-2 pb-4">
                     <div className="grid gap-4 pl-4 border-l border-gray-100 ml-1">
+                      <SheetClose asChild>
+                        <Link
+                          href="/product"
+                          className="block p-3 rounded-lg bg-gradient-to-br from-[#e25d24]/5 to-orange-50 border border-[#e25d24]/10 mb-2"
+                        >
+                          <span className="block text-[15px] font-bold text-[#e25d24]">
+                            How It Works
+                          </span>
+                          <span className="block text-[11px] text-gray-500 mt-0.5">
+                            Seven steps from idea to production.
+                          </span>
+                        </Link>
+                      </SheetClose>
                       {PRODUCT_DATA.map((item) => (
                         <SheetClose key={item.title} asChild>
                           <Link href={item.href} className="group block">
@@ -433,10 +485,7 @@ export const Header = () => {
                         <div className="grid gap-4">
                           {SOLUTIONS_DATA.build.map((item) => (
                             <SheetClose key={item.title} asChild>
-                              <Link
-                                href={item.href}
-                                className="group block"
-                              >
+                              <Link href={item.href} className="group block">
                                 <span className="block text-[15px] font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
                                   {item.title}
                                 </span>
@@ -456,10 +505,7 @@ export const Header = () => {
                         <div className="grid gap-4">
                           {SOLUTIONS_DATA.modernize.map((item) => (
                             <SheetClose key={item.title} asChild>
-                              <Link
-                                href={item.href}
-                                className="group block"
-                              >
+                              <Link href={item.href} className="group block">
                                 <span className="block text-[15px] font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
                                   {item.title}
                                 </span>
@@ -479,10 +525,7 @@ export const Header = () => {
                         <div className="grid gap-4">
                           {SOLUTIONS_DATA.segments.map((item) => (
                             <SheetClose key={item.title} asChild>
-                              <Link
-                                href={item.href}
-                                className="group block"
-                              >
+                              <Link href={item.href} className="group block">
                                 <span className="block text-[15px] font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
                                   {item.title}
                                 </span>
@@ -504,8 +547,10 @@ export const Header = () => {
                     <Link
                       href="/pricing"
                       className={cn(
-                        "flex py-3 text-[18px] font-bold transition-colors",
-                        isActive('/pricing') ? "text-[#3b82f6]" : "text-gray-900"
+                        'flex py-3 text-[18px] font-bold transition-colors',
+                        isActive('/pricing')
+                          ? 'text-[#3b82f6]'
+                          : 'text-gray-900',
                       )}
                     >
                       Pricing
@@ -519,8 +564,8 @@ export const Header = () => {
                     <Link
                       href="/faq"
                       className={cn(
-                        "flex py-3 text-[18px] font-bold transition-colors",
-                        isActive('/faq') ? "text-[#3b82f6]" : "text-gray-900"
+                        'flex py-3 text-[18px] font-bold transition-colors',
+                        isActive('/faq') ? 'text-[#3b82f6]' : 'text-gray-900',
                       )}
                     >
                       FAQ
@@ -534,8 +579,10 @@ export const Header = () => {
                     <Link
                       href="/contact-us"
                       className={cn(
-                        "flex py-3 text-[18px] font-bold transition-colors",
-                        isActive('/contact-us') ? "text-[#3b82f6]" : "text-gray-900"
+                        'flex py-3 text-[18px] font-bold transition-colors',
+                        isActive('/contact-us')
+                          ? 'text-[#3b82f6]'
+                          : 'text-gray-900',
                       )}
                     >
                       Contact Us
