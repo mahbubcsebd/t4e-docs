@@ -180,7 +180,7 @@ const VerticalArrow = ({ className = '' }) => (
 
 export const Diagram = () => {
   return (
-    <section className="w-full py-16 bg-white overflow-x-auto no-scrollbar">
+    <section className="w-full bg-white overflow-x-auto no-scrollbar">
       <div className="max-w-[1100px] mx-auto px-4 min-w-[950px]">
         {/* Phase: Foundation (Steps 1-4) */}
         <div className="relative mb-24">
