@@ -1,4 +1,3 @@
-import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
 import { BuildNewSystems } from "@/components/sections/BuildNewSystems";
 import { IndependentDevelopers } from "@/components/sections/IndependentDevelopers";
@@ -9,7 +8,6 @@ import { EnterpriseITTeams } from "@/components/sections/EnterpriseITTeams";
 import { ModernizeIntegrators } from "@/components/sections/ModernizeIntegrators";
 import { Integrations } from "@/components/sections/Integrations";
 import { BottomCTA } from "@/components/sections/BottomCTA";
-import { Footer } from "@/components/sections/Footer";
 
 export const metadata = {
   title: "think4ever | Turn Ideas into Integrated Systems",
@@ -18,20 +16,18 @@ export const metadata = {
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
-      <Header />
+    <>
       <Hero />
-      <BuildNewSystems />
-      <IndependentDevelopers />
-      <SoftwareAndSaaS />
-      <SystemsIntegrators />
-      <ModernizeExistingSystems />
-      <EnterpriseITTeams />
-      <ModernizeIntegrators />
-      <Integrations />
+      <section id="build-new"><BuildNewSystems /></section>
+      <section id="indie-devs"><IndependentDevelopers /></section>
+      <section id="software-saas"><SoftwareAndSaaS /></section>
+      <section id="systems-integrators"><SystemsIntegrators /></section>
+      <section id="modernize-existing"><ModernizeExistingSystems /></section>
+      <section id="enterprise-it"><EnterpriseITTeams /></section>
+      <section id="modernize-integrators"><ModernizeIntegrators /></section>
+      <section id="integrations"><Integrations /></section>
       <BottomCTA />
-      <Footer />
-    </div>
+    </>
   );
 };
 
