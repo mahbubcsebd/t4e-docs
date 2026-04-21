@@ -13,12 +13,10 @@ export const AudienceDetail = ({ data }) => {
     <section className="py-12 sm:py-24 px-4 sm:px-6 lg:px-8 w-full bg-[#fbfcfd] flex flex-col items-center">
       {/* Header Area */}
       <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-10 sm:mb-16">
-        <div className="uppercase tracking-widest text-[11px] sm:text-[12px] font-bold text-[#627aa8] mb-1">
-          BUILD NEW SYSTEMS
-        </div>
-        <div className="uppercase tracking-widest text-[11px] sm:text-[12px] font-bold text-[#627aa8] mb-4">
-          {data.overline.replace('<br />', ' ')}
-        </div>
+        <div 
+          className="uppercase tracking-widest text-[11px] sm:text-[12px] font-bold text-[#627aa8] mb-4 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: data.overline }}
+        />
         <Heading level="h2" className="text-[1.75rem] sm:text-[2.5rem] leading-[1.2] font-bold text-[#0f172a] tracking-tight text-balance" dangerouslySetInnerHTML={{ __html: data.title }} />
       </div>
 

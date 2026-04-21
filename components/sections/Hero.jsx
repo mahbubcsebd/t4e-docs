@@ -3,6 +3,7 @@ import { Paragraph } from '@/components/globals/Paragraph';
 import { Video } from '@/components/globals/Video';
 import { Button } from '@/components/ui/button';
 import { Check, RefreshCw, Rocket } from 'lucide-react';
+import Link from 'next/link';
 
 export const Hero = () => {
   return (
@@ -132,12 +133,15 @@ export const Hero = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 relative items-center">
           {/* Card 1 */}
-          <div className="border border-gray-100 rounded-2xl p-5 sm:p-6 bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex gap-4 hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all cursor-pointer">
-            <div className="h-[44px] w-[44px] sm:h-[48px] sm:w-[48px] rounded-xl bg-[#f5f5ff] flex items-center justify-center flex-shrink-0 border border-[#e4e4ff]">
+          <Link 
+            href="/#build-new"
+            className="border border-gray-100 rounded-2xl p-5 sm:p-6 bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex gap-4 hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all cursor-pointer group"
+          >
+            <div className="h-[44px] w-[44px] sm:h-[48px] sm:w-[48px] rounded-xl bg-[#f5f5ff] flex items-center justify-center flex-shrink-0 border border-[#e4e4ff] group-hover:scale-110 transition-transform">
               <Rocket className="h-5 w-5 text-[#6366f1]" />
             </div>
             <div className="flex-1 mt-0.5">
-              <h4 className="font-bold text-[#1f2937] mb-1 text-[15px]">
+              <h4 className="font-bold text-[#1f2937] mb-1 text-[15px] group-hover:text-[#3b82f6] transition-colors">
                 Build New Systems
               </h4>
               <Paragraph
@@ -148,16 +152,19 @@ export const Hero = () => {
                 sprawl, handoffs, or rework.
               </Paragraph>
             </div>
-          </div>
+          </Link>
 
           {/* Card 2 */}
-          <div className="border border-gray-100 rounded-2xl p-5 sm:p-6 bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex gap-4 hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all cursor-pointer">
-            <div className="h-[44px] w-[44px] sm:h-[48px] sm:w-[48px] rounded-xl bg-[#fffef0] flex items-center justify-center flex-shrink-0 border border-[#fff3cc]">
+          <Link 
+            href="/#modernize-existing"
+            className="border border-gray-100 rounded-2xl p-5 sm:p-6 bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex gap-4 hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all cursor-pointer group"
+          >
+            <div className="h-[44px] w-[44px] sm:h-[48px] sm:w-[48px] rounded-xl bg-[#fffef0] flex items-center justify-center flex-shrink-0 border border-[#fff3cc] group-hover:scale-110 transition-transform">
               <RefreshCw className="h-5 w-5 text-[#f5a623]" />
             </div>
             <div className="flex-1 mt-0.5">
-              <h4 className="font-bold text-[#1f2937] mb-1 text-[15px]">
-                Modernize Existing Systems
+              <h4 className="font-bold text-[#1f2937] mb-1 text-[15px] group-hover:text-[#3b82f6] transition-colors">
+                Update & Modernize New Systems
               </h4>
               <Paragraph
                 size="sm"
@@ -167,7 +174,7 @@ export const Hero = () => {
                 transformation.
               </Paragraph>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
     </main>

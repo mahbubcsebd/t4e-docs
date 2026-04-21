@@ -86,7 +86,7 @@ const SOLUTIONS_DATA = {
       href: '/#modernize-integrators',
     },
     {
-      title: 'Enterprise IT Teams',
+      title: 'Enterprise LOB & IT teams',
       desc: 'Modernize infrastructure with multi-agent orchestration.',
       href: '/#enterprise-it',
     },
@@ -108,7 +108,7 @@ const SOLUTIONS_DATA = {
       href: '/#systems-integrators',
     },
     {
-      title: 'Enterprise IT Teams',
+      title: 'Enterprise LOB & IT teams',
       desc: 'Enterprise-scale transformation simplified.',
       href: '/#enterprise-it',
     },
@@ -278,7 +278,7 @@ export const Header = () => {
                   </div>
                   <div>
                     <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest pl-3 mb-4">
-                      Modernize Existing Systems
+                      Update & Modernize New Systems
                     </h4>
                     <ul className="grid gap-1">
                       {SOLUTIONS_DATA.modernize.map((item) => (
@@ -311,7 +311,7 @@ export const Header = () => {
                               ? Code
                               : item.title === 'Software and SaaS'
                                 ? Cloud
-                                : item.title === 'Enterprise IT Teams'
+                                : item.title === 'Enterprise LOB & IT teams'
                                   ? Building
                                   : Briefcase
                           }
@@ -500,7 +500,7 @@ export const Header = () => {
 
                       <div className="space-y-3 pt-2">
                         <div className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">
-                          Modernize Existing Systems
+                          Update & Modernize New Systems
                         </div>
                         <div className="grid gap-4">
                           {SOLUTIONS_DATA.modernize.map((item) => (

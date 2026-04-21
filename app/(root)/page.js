@@ -6,8 +6,6 @@ import { SystemsIntegrators } from "@/components/sections/SystemsIntegrators";
 import { ModernizeExistingSystems } from "@/components/sections/ModernizeExistingSystems";
 import { EnterpriseITTeams } from "@/components/sections/EnterpriseITTeams";
 import { ModernizeIntegrators } from "@/components/sections/ModernizeIntegrators";
-import { Integrations } from "@/components/sections/Integrations";
-import { BottomCTA } from "@/components/sections/BottomCTA";
 
 export const metadata = {
   title: "think4ever | Turn Ideas into Integrated Systems",
@@ -25,8 +23,6 @@ const HomePage = () => {
       <section id="modernize-existing"><ModernizeExistingSystems /></section>
       <section id="enterprise-it"><EnterpriseITTeams /></section>
       <section id="modernize-integrators"><ModernizeIntegrators /></section>
-      <section id="integrations"><Integrations /></section>
-      <BottomCTA />
     </>
   );
 };

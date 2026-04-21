@@ -3,6 +3,7 @@ import { Paragraph } from "@/components/globals/Paragraph";
 import { Button } from "@/components/ui/button";
 import { Code, Monitor, Wrench } from "lucide-react";
 import { buildSystemCards } from "@/constant/data";
+import Link from 'next/link';
 import React from "react";
 
 const iconMap = {
@@ -45,9 +46,11 @@ export const BuildNewSystems = () => {
                 )}
               </div>
               
-              <Button className="w-full bg-[#1b449b] hover:bg-[#163884] text-white rounded-lg h-11 text-[14px] sm:text-[15px] font-medium shadow-sm transition-colors">
-                {card.buttonText}
-              </Button>
+              <Link href={card.buttonLink} className="w-full">
+                <Button className="w-full bg-[#1b449b] hover:bg-[#163884] text-white rounded-lg h-11 text-[14px] sm:text-[15px] font-medium shadow-sm transition-colors">
+                  {card.buttonText}
+                </Button>
+              </Link>
             </div>
           );
         })}
