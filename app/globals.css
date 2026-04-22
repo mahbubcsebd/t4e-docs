@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -129,4 +129,9 @@
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
   }
+}
+
+button,
+a {
+  cursor: pointer;
 }

@@ -154,15 +154,24 @@ const steps = [
   },
 ];
 
-const phases = [
-  { name: 'FOUNDATION', color: 'text-blue-500', steps: [1, 2, 3, 4] },
-  { name: 'DESIGN', color: 'text-[#e25d24]', steps: [5, 6] },
-  { name: 'DEPLOY', color: 'text-green-600', steps: [7] },
-];
-
 const ProductPage = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const current = steps[activeStep];
+  const [activeStep, setActiveStep] = useState(null);
+  const current = steps[activeStep ?? 0];
+
+  const handleStepChange = (index) => {
+    setActiveStep(index);
+    const element = document.getElementById('step-detail-section');
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <main className="min-h-screen bg-white">
@@ -183,47 +192,11 @@ const ProductPage = () => {
 
       {/* Main Diagram Component */}
       <section className="pb-10 lg:pb-16">
-        <Diagram />
+        <Diagram activeIndex={activeStep} onStepClick={handleStepChange} />
       </section>
 
-      {/* Flow Diagram Overview */}
-      {/* <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-14">
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-          {steps.map((step, idx) => (
-            <button
-              key={step.id}
-              onClick={() => setActiveStep(idx)}
-              className={`group flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg border transition-all duration-200 text-left ${
-                activeStep === idx
-                  ? 'border-[#e25d24]/30 bg-[#e25d24]/5 shadow-sm'
-                  : 'border-gray-100 bg-white hover:border-gray-200 hover:bg-gray-50/50'
-              }`}
-            >
-              <span
-                className={`flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full text-[10px] sm:text-[11px] font-bold shrink-0 ${
-                  activeStep === idx
-                    ? 'bg-[#e25d24] text-white'
-                    : 'bg-gray-100 text-gray-400 group-hover:bg-gray-200'
-                }`}
-              >
-                {String(step.id).padStart(2, '0')}
-              </span>
-              <span
-                className={`text-[12px] sm:text-[13px] font-semibold hidden md:inline ${
-                  activeStep === idx
-                    ? 'text-[#1f2937]'
-                    : 'text-gray-400 group-hover:text-gray-600'
-                }`}
-              >
-                {step.label}
-              </span>
-            </button>
-          ))}
-        </div>
-      </section> */}
-
       {/* Interactive Step Detail */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 lg:pb-16">
+      <section id="step-detail-section" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 lg:pb-16 scroll-mt-20">
         <div className="bg-white rounded-2xl shadow-[0_4px_24px_-2px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.04)] border border-gray-200 overflow-hidden">
           <div className="flex flex-col lg:flex-row min-h-[500px]">
             {/* Left Sidebar / Top Bar for Mobile */}

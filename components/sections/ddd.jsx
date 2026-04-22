@@ -79,11 +79,21 @@ const steps = [
 const StepCard = ({ step, isActive, onClick, className = '' }) => {
   const Icon = step.icon;
   const colors = {
-    blue: isActive ? 'border-blue-500 bg-blue-50/50 shadow-lg shadow-blue-500/10' : 'border-gray-100 bg-white hover:border-blue-200 hover:shadow-blue-500/10',
-    purple: isActive ? 'border-purple-500 bg-purple-50/50 shadow-lg shadow-purple-500/10' : 'border-gray-100 bg-white hover:border-purple-200 hover:shadow-purple-500/10',
-    green: isActive ? 'border-emerald-500 bg-emerald-50/50 shadow-lg shadow-emerald-500/10' : 'border-gray-100 bg-white hover:border-emerald-200 hover:shadow-emerald-500/10',
-    orange: isActive ? 'border-orange-500 bg-orange-50/50 shadow-lg shadow-orange-500/10' : 'border-orange-100 bg-[#fffef4] hover:border-orange-300 hover:shadow-orange-500/10',
-    pink: isActive ? 'border-pink-500 bg-pink-50/50 shadow-lg shadow-pink-500/10' : 'border-gray-100 bg-white hover:border-pink-200 hover:shadow-pink-500/10',
+    blue: isActive
+      ? 'border-blue-500 bg-blue-50/50 shadow-lg shadow-blue-500/10'
+      : 'border-gray-100 bg-white hover:border-blue-200 hover:shadow-blue-500/10',
+    purple: isActive
+      ? 'border-purple-500 bg-purple-50/50 shadow-lg shadow-purple-500/10'
+      : 'border-gray-100 bg-white hover:border-purple-200 hover:shadow-purple-500/10',
+    green: isActive
+      ? 'border-emerald-500 bg-emerald-50/50 shadow-lg shadow-emerald-500/10'
+      : 'border-gray-100 bg-white hover:border-emerald-200 hover:shadow-emerald-500/10',
+    orange: isActive
+      ? 'border-orange-500 bg-orange-50/50 shadow-lg shadow-orange-500/10'
+      : 'border-orange-100 bg-[#fffef4] hover:border-orange-300 hover:shadow-orange-500/10',
+    pink: isActive
+      ? 'border-pink-500 bg-pink-50/50 shadow-lg shadow-pink-500/10'
+      : 'border-gray-100 bg-white hover:border-pink-200 hover:shadow-pink-500/10',
   };
 
   const iconCircle = {
@@ -120,14 +130,18 @@ const StepCard = ({ step, isActive, onClick, className = '' }) => {
         >
           <Icon className="w-5 h-5 flex-shrink-0" />
         </div>
-        <h3 className={`font-bold text-[14px] mb-1 leading-tight transition-colors duration-300 ${isActive ? 'text-[#e25d24]' : 'text-[#1f2937] group-hover:text-[#e25d24]'}`}>
+        <h3
+          className={`font-bold text-[14px] mb-1 leading-tight transition-colors duration-300 ${isActive ? 'text-[#e25d24]' : 'text-[#1f2937] group-hover:text-[#e25d24]'}`}
+        >
           {step.title}
         </h3>
         <p className="text-[12px] text-gray-400 leading-relaxed mb-4 flex-1 transition-colors duration-300 group-hover:text-gray-500">
           {step.desc}
         </p>
-        <span className={`inline-block self-start px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider transition-all duration-300 border
-          ${isActive ? 'bg-[#e25d24] text-white border-transparent' : 'text-gray-500 bg-gray-50 border-gray-100 group-hover:bg-[#e25d24] group-hover:text-white group-hover:border-transparent'}`}>
+        <span
+          className={`inline-block self-start px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider transition-all duration-300 border
+          ${isActive ? 'bg-[#e25d24] text-white border-transparent' : 'text-gray-500 bg-gray-50 border-gray-100 group-hover:bg-[#e25d24] group-hover:text-white group-hover:border-transparent'}`}
+        >
           {step.tag}
         </span>
       </div>
@@ -254,20 +268,30 @@ export const Diagram = ({ activeIndex = 0, onStepClick = () => {} }) => {
             className={`w-full group border rounded-xl p-6 sm:p-8 relative transition-all duration-500 ease-out text-left
               ${activeIndex === 6 ? 'border-emerald-500 bg-emerald-50/50 shadow-lg -translate-y-1 scale-[1.01]' : 'border-green-200 bg-[#f9fffb] hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl hover:border-emerald-300'}`}
           >
-            <div className={`absolute top-3 right-4 w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold transition-all duration-500
-              ${activeIndex === 6 ? 'bg-emerald-700 scale-110' : 'bg-emerald-600 group-hover:scale-110 group-hover:rotate-12 group-hover:bg-emerald-700'} text-white`}>
+            <div
+              className={`absolute top-3 right-4 w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold transition-all duration-500
+              ${activeIndex === 6 ? 'bg-emerald-700 scale-110' : 'bg-emerald-600 group-hover:scale-110 group-hover:rotate-12 group-hover:bg-emerald-700'} text-white`}
+            >
               07
             </div>
             <div className="flex items-center gap-8">
-              <div className={`w-16 h-16 rounded-xl bg-white border flex items-center justify-center shrink-0 shadow-sm transition-all duration-500
-                ${activeIndex === 6 ? 'border-emerald-200 scale-110 shadow-md' : 'border-green-100 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-md'}`}>
-                <Shield className={`w-8 h-8 transition-colors duration-500 ${activeIndex === 6 ? 'text-emerald-700' : 'text-emerald-500 group-hover:text-emerald-600'}`} />
+              <div
+                className={`w-16 h-16 rounded-xl bg-white border flex items-center justify-center shrink-0 shadow-sm transition-all duration-500
+                ${activeIndex === 6 ? 'border-emerald-200 scale-110 shadow-md' : 'border-green-100 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-md'}`}
+              >
+                <Shield
+                  className={`w-8 h-8 transition-colors duration-500 ${activeIndex === 6 ? 'text-emerald-700' : 'text-emerald-500 group-hover:text-emerald-600'}`}
+                />
               </div>
               <div className="flex-1">
-                <h3 className={`text-[18px] font-bold mb-1.5 transition-colors duration-300 ${activeIndex === 6 ? 'text-emerald-900' : 'text-[#1f2937] group-hover:text-emerald-900'}`}>
+                <h3
+                  className={`text-[18px] font-bold mb-1.5 transition-colors duration-300 ${activeIndex === 6 ? 'text-emerald-900' : 'text-[#1f2937] group-hover:text-emerald-900'}`}
+                >
                   {steps[6].title}
                 </h3>
-                <p className={`text-[14px] leading-relaxed max-w-4xl transition-colors duration-300 ${activeIndex === 6 ? 'text-emerald-700' : 'text-gray-500 group-hover:text-gray-600'}`}>
+                <p
+                  className={`text-[14px] leading-relaxed max-w-4xl transition-colors duration-300 ${activeIndex === 6 ? 'text-emerald-700' : 'text-gray-500 group-hover:text-gray-600'}`}
+                >
                   {steps[6].desc}
                 </p>
                 <div className="flex gap-3 mt-4">

@@ -183,19 +183,18 @@ export const Header = () => {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    isActive('/')
-                      ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
-                      : 'text-gray-500 hover:text-gray-900 bg-transparent',
-                    'font-semibold px-4 transition-colors',
-                  )}
-                >
-                  Home
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  isActive('/')
+                    ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
+                    : 'text-gray-500 hover:text-gray-900 bg-transparent',
+                  'font-semibold px-4 transition-colors',
+                )}
+              >
+                <Link href="/">Home</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
@@ -327,51 +326,48 @@ export const Header = () => {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="/pricing" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    isActive('/pricing')
-                      ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
-                      : 'text-gray-500 hover:text-gray-900 bg-transparent',
-                    'font-medium transition-colors',
-                  )}
-                >
-                  Pricing
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  isActive('/pricing')
+                    ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
+                    : 'text-gray-500 hover:text-gray-900 bg-transparent',
+                  'font-medium transition-colors',
+                )}
+              >
+                <Link href="/pricing">Pricing</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="/faq" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    isActive('/faq')
-                      ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
-                      : 'text-gray-500 hover:text-gray-900 bg-transparent',
-                    'font-medium transition-colors',
-                  )}
-                >
-                  FAQ
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  isActive('/faq')
+                    ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
+                    : 'text-gray-500 hover:text-gray-900 bg-transparent',
+                  'font-medium transition-colors',
+                )}
+              >
+                <Link href="/faq">FAQ</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="/contact-us" legacyBehavior passHref>
-                <NavigationMenuLink
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    isActive('/contact-us')
-                      ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
-                      : 'text-gray-500 hover:text-gray-900 bg-transparent',
-                    'font-medium transition-colors',
-                  )}
-                >
-                  Contact Us
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  isActive('/contact-us')
+                    ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
+                    : 'text-gray-500 hover:text-gray-900 bg-transparent',
+                  'font-medium transition-colors',
+                )}
+              >
+                <Link href="/contact-us">Contact Us</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
