@@ -33,9 +33,11 @@ const companySizeOptions = [
 
 const userTypeOptions = [
   { label: 'Select one', value: '' },
-  { label: 'Developer', value: 'developer' },
-  { label: 'Manager', value: 'manager' },
-  { label: 'Founder', value: 'founder' },
+  { label: 'Independent Developer', value: 'independent_developer' },
+  { label: 'Start Up / New Venture', value: 'startup' },
+  { label: 'Software & SaaS Firm', value: 'saas' },
+  { label: 'SI & Consultant', value: 'si_consultant' },
+  { label: 'Enterprise & Mid-Size Business', value: 'enterprise' },
 ];
 
 const ContactForm = () => {

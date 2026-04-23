@@ -1,7 +1,7 @@
 export const audienceDetailsData = {
   independent: {
     id: 'independent',
-    overline: 'BUILD NEW SYSTEMS<br />INDEPENDENT DEVELOPERS',
+    overline: 'INDEPENDENT DEVELOPERS',
     title:
       "The fastest path from idea to working system -<br class='hidden md:block' /> without the team, tools or overhead.",
     realityCards: [
@@ -44,11 +44,12 @@ export const audienceDetailsData = {
         desc: 'Move from idea to deployable systems in hours, not weeks of patching tools together.',
       },
     ],
+    ctaHref: '/checkout/indie-devs',
     videoLabel: 'See how it works for indie devs',
   },
   saas: {
     id: 'saas',
-    overline: 'BUILD NEW SYSTEMS<br />SOFTWARE AND SAAS FIRMS',
+    overline: 'SOFTWARE AND SAAS FIRMS',
     title:
       "Ship at the speed of your ambition — without<br class='hidden md:block' /> the complicated tech stack slowing you down.",
     realityCards: [
@@ -92,34 +93,35 @@ export const audienceDetailsData = {
       },
     ],
     videoLabel: 'See how it works for SaaS teams',
+    ctaHref: '/contact-us',
   },
   integrators: {
     id: 'integrators',
-    overline: 'BUILD NEW SYSTEMS<br />SYSTEMS INTEGRATORS / CONSULTANTS',
+    overline: 'SYSTEMS INTEGRATORS / CONSULTANTS',
     title:
-      "Deliver projects faster, with less risk — and<br class='hidden md:block' /> more margin per engagement.",
+      'Deliver projects faster, with less risk — and<br class=\'hidden md:block\' /> more margin per engagement.',
     realityCards: [
       {
         id: 1,
-        title: 'Requirements are custom, slow and exacerbated by tool sprawl',
+        title: 'Complex, shifting requirements make projects slow and costly',
         description:
-          'Each engagement demands bespoke discovery across disconnected tools, adding time, skillset complexity, handoffs and cost before delivery even begins.',
+          'Each engagement starts with unique business needs, stakeholder input, legacy constraints and changing priorities. Discovery takes time before delivery begins.',
         statHtml:
-          "<span class='text-[#e11d48] font-bold'>14 tools</span> juggled daily by developers with <span class='text-[#e11d48] font-bold'>40%</span> time cost due to context switching",
+          "<span class='text-[#e11d48] font-bold'>37%</span> of project failures tied to unclear requirements and objectives",
       },
       {
         id: 2,
-        title: 'Constant requirements changes break budgets and timelines',
+        title: 'Hidden system dependencies turn changes into costly rework',
         description:
-          'A single change order triggers unplanned sprints, pulls senior resources off other work, and turns fixed-fee engagements into margin losses.',
+          'What seems like one enhancement often impacts workflows, data, integrations and downstream systems. Without clear dependency visibility, teams underestimate effort, delay delivery and absorb rework.',
         statHtml:
-          "<span class='text-[#e11d48] font-bold'>20-40%</span> avg margin reduction for fixed-fee engagements",
+          "<span class='text-[#e11d48] font-bold'>11%</span> of project investment is wasted through rework",
       },
       {
         id: 3,
-        title: "Can't see downstream impact of changes clear and fast enough",
+        title: 'Legacy systems are slowing and limiting AI acceleration',
         description:
-          'One requirement change ripples through testing, architecture and integrations — invisibly, until something breaks.',
+          'Clients want to deploy agents, workbenches and AI strategy but unclear legacy systems and processes stall engagements and drive up cost. Manual discovery eats the budget before AI monetization happens.',
         statHtml:
           "<span class='text-[#e11d48] font-bold'>43%</span> of overruns from underestimated complexity",
       },
@@ -139,10 +141,11 @@ export const audienceDetailsData = {
       },
     ],
     videoLabel: 'See how it works for consultants',
+    ctaHref: '/contact-us',
   },
   enterpriseIT: {
     id: 'enterpriseIT',
-    overline: 'UPDATE & MODERNIZE SYSTEMS<br />ENTEPRISE LOB & IT TEAMS',
+    overline: 'ENTERPRISE LOB & IT TEAMS',
     title:
       "Map your systems. Modernize safely.<br class='hidden md:block' /> Deploy AI with confidence.",
     realityCards: [
@@ -187,10 +190,11 @@ export const audienceDetailsData = {
       },
     ],
     videoLabel: 'See how it works for enterprise IT',
+    ctaHref: '/contact-us',
   },
   modernizeIntegrators: {
     id: 'modernizeIntegrators',
-    overline: 'UPDATE & MODERNIZE SYSTEMS<br />SYSTEMS INTEGRATORS / CONSULTANTS',
+    overline: 'SYSTEMS INTEGRATORS / CONSULTANTS',
     title: 'Modernize client systems, Accelerate AI delivery.',
     realityCards: [
       {
@@ -234,5 +238,54 @@ export const audienceDetailsData = {
       },
     ],
     videoLabel: 'See how it works for modernization partners',
+    ctaHref: '/contact-us',
+  },
+  startups: {
+    id: 'startups',
+    overline: 'START-UPS & NEW VENTURES',
+    title:
+      'Go from pitch deck to production — with start-up speed and a full stack built-in technical co-founder.',
+    realityCards: [
+      {
+        id: 1,
+        title: 'Turning ideas into technical scope takes months',
+        description:
+          'Founders spend valuable time defining features, workflows, architecture, priorities and MVP scope before real building even starts.',
+        statHtml:
+          "<span class='text-[#e11d48] font-bold'>70%</span> of early-stage startups fail due to premature scaling or slow time-to-market",
+      },
+      {
+        id: 2,
+        title: 'Early architecture decisions create long-term debt',
+        description:
+          'What you hack together at seed stage becomes the codebase you fight at Series A. Bad early choices cost months of refactoring later.',
+        statHtml:
+          "<span class='text-[#e11d48] font-bold'>60%</span> of Series A teams cite technical debt from MVP as their biggest blocker to scale",
+      },
+      {
+        id: 3,
+        title: 'Hiring engineers is slow, expensive, and risky',
+        description:
+          "A single senior hire can cost $200K+ annually — and take 3-6 months to find. For early-stage teams, that's runway you don't have.",
+        statHtml:
+          "<span class='text-[#e11d48] font-bold'>4-6 months</span> average time-to-hire for senior engineering talent",
+      },
+    ],
+    checklist: [
+      {
+        title: 'MVP to Production in Weeks, Not Quarters',
+        desc: 'Turn your pitch deck vision into a deployable, production-grade system — fast enough to validate with real customers before your next funding round.',
+      },
+      {
+        title: 'Architected to Scale From Day One',
+        desc: 'AI-generated architecture that’s built on best practices — so the system you ship at seed still holds up at Series B. No costly re-platforming.',
+      },
+      {
+        title: 'Ship Like a 10-Person Team With a Founding Team of 2',
+        desc: 'AI agents design, build, and deploy — so founders can focus on customers, fundraising, and product strategy instead of hiring sprints.',
+      },
+    ],
+    videoLabel: 'See how it works for startups',
+    ctaHref: '/contact-us',
   },
 };

@@ -4,6 +4,7 @@ import { Paragraph } from "@/components/globals/Paragraph";
 import { Video } from "@/components/globals/Video";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import Link from 'next/link';
 import React from "react";
 
 export const AudienceDetail = ({ data }) => {
@@ -63,19 +64,23 @@ export const AudienceDetail = ({ data }) => {
           </div>
 
           {/* Right Video CTA Thumbnail */}
-          <div className="w-full lg:w-1/2">
-            <Video 
+          <div className="w-full lg:w-1/2 flex flex-col items-center">
+            <Video
               url="https://www.youtube.com/watch?v=CQpIODqNFek"
-              className="aspect-video w-full max-w-[500px] mx-auto bg-gradient-to-br from-[#4161a0] to-[#253965] shadow-2xl rounded-2xl border-0 overflow-hidden"
+              className="aspect-video w-full max-w-[500px] bg-gradient-to-br from-[#4161a0] to-[#253965] shadow-2xl rounded-2xl border-0 overflow-hidden"
             />
+            <div className="mt-8">
+              <Button asChild className="bg-[#64748b] hover:bg-[#475569] text-white h-11 px-8 font-bold transition-all rounded-md shadow-md">
+                <Link href="/product">Explore Product</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom CTA Button */}
       <div className="mt-12 sm:mt-20 mb-4 sm:mb-8 w-full sm:w-auto px-4 sm:px-0">
-        <Button variant="orange" className="w-full sm:w-auto h-[50px] sm:h-[52px] px-10 text-[16px] sm:text-[17px] font-semibold shadow-md hover:shadow-lg rounded-md transition-all">
-          Get Early Access
+        <Button asChild variant="orange" className="w-full sm:w-auto h-[50px] sm:h-[52px] px-10 text-[16px] sm:text-[17px] font-semibold shadow-md hover:shadow-lg rounded-md transition-all">
+          <Link href={data.ctaHref || "/contact-us"}>Get Early Access</Link>
         </Button>
       </div>
     </section>

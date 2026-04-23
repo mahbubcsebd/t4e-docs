@@ -62,54 +62,30 @@ const PRODUCT_DATA = [
 ];
 
 const SOLUTIONS_DATA = {
-  build: [
-    {
-      title: 'Independent Developers',
-      desc: 'Build enterprise-grade systems as a solo creator.',
-      href: '/#indie-devs',
-    },
-    {
-      title: 'Software and SaaS',
-      desc: 'Scaling output with AI-managed software cycles.',
-      href: '/#software-saas',
-    },
-    {
-      title: "SI's and Consultants",
-      desc: 'Deliver complex integrations in record time.',
-      href: '/#systems-integrators',
-    },
-  ],
-  modernize: [
-    {
-      title: "SI's and Consultants",
-      desc: 'Transform legacy stacks into modern AI systems.',
-      href: '/#modernize-integrators',
-    },
-    {
-      title: 'Enterprise LOB & IT teams',
-      desc: 'Modernize infrastructure with multi-agent orchestration.',
-      href: '/#enterprise-it',
-    },
-  ],
   segments: [
     {
       title: 'Independent Developers',
-      desc: 'Full-stack power for independent innovators.',
+      desc: 'Solo developers, indie hackers, technical founders, freelancers',
       href: '/#indie-devs',
     },
     {
-      title: 'Software and SaaS',
-      desc: 'Accelerate product roadmap for SaaS companies.',
+      title: 'Start-ups & New Ventures',
+      desc: 'Early-stage founders, seed and Series A product teams',
+      href: '/#startups',
+    },
+    {
+      title: 'Software & Saas Companies',
+      desc: 'SaaS companies, software firms, scale-ups, product and engineering teams',
       href: '/#software-saas',
     },
     {
-      title: "SI's and Consultants",
-      desc: 'Consulting solutions for complex workflows.',
+      title: 'Systems Integrators / Consultants',
+      desc: 'Management consultants, SI partners, consulting firms, migration specialists, managed service providers',
       href: '/#systems-integrators',
     },
     {
-      title: 'Enterprise LOB & IT teams',
-      desc: 'Enterprise-scale transformation simplified.',
+      title: 'Enterprise & Mid-Size Business',
+      desc: 'Business growth leads, digital heads, CIOs/CTOs, enterprise architects',
       href: '/#enterprise-it',
     },
   ],
@@ -124,7 +100,7 @@ const ListItem = React.forwardRef(
             href={href}
             ref={ref}
             className={cn(
-              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100 focus:bg-gray-100 group',
+              'block select-none space-y-1 rounded-md p-3 no-underline outline-none transition-colors hover:bg-gray-100 focus:bg-gray-100 group',
               className,
             )}
             {...props}
@@ -135,11 +111,11 @@ const ListItem = React.forwardRef(
                   <Icon className="h-4.5 w-4.5 text-gray-400 group-hover:text-[#3b82f6]" />
                 </div>
               )}
-              <div>
-                <div className="text-[13.5px] font-bold leading-none text-gray-900 group-hover:text-[#3b82f6] transition-colors mb-1">
+              <div className="flex-1 min-w-0">
+                <div className="text-[14px] font-bold leading-tight text-gray-900 group-hover:text-[#3b82f6] transition-colors mb-1">
                   {title}
                 </div>
-                <p className="line-clamp-1 text-[11px] leading-snug text-gray-400">
+                <p className="text-[11.5px] leading-relaxed text-gray-400 font-medium">
                   {children}
                 </p>
               </div>
@@ -210,16 +186,16 @@ export const Header = () => {
                 Product
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-2 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                  <li className="col-span-full">
+                <ul className="grid w-[450px] gap-2 p-4 outline-none">
+                  <li>
                     <Link
                       href="/product"
-                      className="block select-none rounded-lg p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground bg-gradient-to-br from-[#e25d24]/5 to-orange-50 border border-[#e25d24]/10"
+                      className="block select-none rounded-lg p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground bg-gradient-to-br from-[#e25d24]/5 to-orange-50 border border-[#e25d24]/10 mb-2"
                     >
                       <div className="text-sm font-bold text-[#1f2937] mb-1">
                         How It Works
                       </div>
-                      <p className="text-xs text-gray-500 leading-relaxed">
+                      <p className="text-xs text-gray-500 leading-relaxed font-medium">
                         Seven connected steps from idea to production-ready
                         system.
                       </p>
@@ -251,76 +227,32 @@ export const Header = () => {
                 Solutions
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid gap-8 p-6 w-[850px] lg:grid-cols-[1.1fr_1.1fr_1.2fr]">
-                  <div>
-                    <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest pl-3 mb-4">
-                      Build New Systems
-                    </h4>
-                    <ul className="grid gap-1">
-                      {SOLUTIONS_DATA.build.map((item) => (
-                        <ListItem
-                          key={item.title}
-                          title={item.title}
-                          icon={
-                            item.title === 'Independent Developers'
-                              ? Code
-                              : item.title === 'Software and SaaS'
+                <div className="p-4 w-[600px]">
+                  <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest pl-3 mb-4">
+                    By Segment
+                  </h4>
+                  <ul className="grid gap-1">
+                    {SOLUTIONS_DATA.segments.map((item) => (
+                      <ListItem
+                        key={item.title}
+                        title={item.title}
+                        icon={
+                          item.title.includes('Independent')
+                            ? Code
+                            : item.title.includes('Start-ups')
+                              ? Zap
+                              : item.title.includes('Software')
                                 ? Cloud
-                                : Briefcase
-                          }
-                          href={item.href}
-                        >
-                          {item.desc}
-                        </ListItem>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest pl-3 mb-4">
-                      Update & Modernize New Systems
-                    </h4>
-                    <ul className="grid gap-1">
-                      {SOLUTIONS_DATA.modernize.map((item) => (
-                        <ListItem
-                          key={item.title}
-                          title={item.title}
-                          icon={
-                            item.title === "SI's and Consultants"
-                              ? Briefcase
-                              : Building
-                          }
-                          href={item.href}
-                        >
-                          {item.desc}
-                        </ListItem>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest pl-3 mb-4 border-l border-gray-100 pl-6">
-                      By Segment
-                    </h4>
-                    <ul className="grid gap-1 border-l border-gray-100 pl-3">
-                      {SOLUTIONS_DATA.segments.map((item) => (
-                        <ListItem
-                          key={item.title}
-                          title={item.title}
-                          icon={
-                            item.title === 'Independent Developers'
-                              ? Code
-                              : item.title === 'Software and SaaS'
-                                ? Cloud
-                                : item.title === 'Enterprise LOB & IT teams'
+                                : item.title.includes('Enterprise')
                                   ? Building
                                   : Briefcase
-                          }
-                          href={item.href}
-                        >
-                          {item.desc}
-                        </ListItem>
-                      ))}
-                    </ul>
-                  </div>
+                        }
+                        href={item.href}
+                      >
+                        {item.desc}
+                      </ListItem>
+                    ))}
+                  </ul>
                 </div>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -376,10 +308,11 @@ export const Header = () => {
       {/* CTA & Mobile Toggle */}
       <div className="flex items-center gap-2">
         <Button
+          asChild
           variant="orange"
           className="hidden sm:flex font-semibold px-5 py-2 h-9 text-sm rounded-md transition-all whitespace-nowrap shadow-sm"
         >
-          Get Early Access
+          <Link href="/contact-us">Get Early Access</Link>
         </Button>
 
         <Sheet>
@@ -474,46 +407,6 @@ export const Header = () => {
                   </AccordionTrigger>
                   <AccordionContent className="pt-2 pb-4">
                     <div className="grid gap-6 pl-4 border-l border-gray-100 ml-1">
-                      <div className="space-y-3">
-                        <div className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">
-                          Build New Systems
-                        </div>
-                        <div className="grid gap-4">
-                          {SOLUTIONS_DATA.build.map((item) => (
-                            <SheetClose key={item.title} asChild>
-                              <Link href={item.href} className="group block">
-                                <span className="block text-[15px] font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
-                                  {item.title}
-                                </span>
-                                <span className="block text-xs text-gray-500 mt-0.5">
-                                  {item.desc}
-                                </span>
-                              </Link>
-                            </SheetClose>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="space-y-3 pt-2">
-                        <div className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">
-                          Update & Modernize New Systems
-                        </div>
-                        <div className="grid gap-4">
-                          {SOLUTIONS_DATA.modernize.map((item) => (
-                            <SheetClose key={item.title} asChild>
-                              <Link href={item.href} className="group block">
-                                <span className="block text-[15px] font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
-                                  {item.title}
-                                </span>
-                                <span className="block text-xs text-gray-500 mt-0.5">
-                                  {item.desc}
-                                </span>
-                              </Link>
-                            </SheetClose>
-                          ))}
-                        </div>
-                      </div>
-
                       <div className="space-y-3 pt-2">
                         <div className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">
                           By Segment
@@ -521,11 +414,14 @@ export const Header = () => {
                         <div className="grid gap-4">
                           {SOLUTIONS_DATA.segments.map((item) => (
                             <SheetClose key={item.title} asChild>
-                              <Link href={item.href} className="group block">
-                                <span className="block text-[15px] font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
+                              <Link
+                                href={item.href}
+                                className="group block py-1"
+                              >
+                                <span className="block text-[15.5px] font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
                                   {item.title}
                                 </span>
-                                <span className="block text-xs text-gray-500 mt-0.5">
+                                <span className="block text-[12.5px] text-gray-500 mt-1 leading-relaxed font-medium">
                                   {item.desc}
                                 </span>
                               </Link>
@@ -590,10 +486,11 @@ export const Header = () => {
 
             <div className="p-6 border-t mt-auto">
               <Button
+                asChild
                 variant="orange"
                 className="w-full font-bold py-6 rounded-lg text-lg shadow-xl shadow-orange-500/20"
               >
-                Get Early Access
+                <Link href="/contact-us">Get Early Access</Link>
               </Button>
             </div>
           </SheetContent>
