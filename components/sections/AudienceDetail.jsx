@@ -43,7 +43,7 @@ export const AudienceDetail = ({ data }) => {
       </div>
 
       <div className="w-full max-w-6xl mx-auto border-t border-gray-200 pt-12 sm:pt-16">
-        <h3 className="text-[19px] sm:text-[22px] font-bold text-[#0f172a] mb-8 sm:mb-10 text-center sm:text-left">With Think4Ever, you get:</h3>
+        <h3 className="text-[18px] sm:text-[20px] font-bold text-[#0f172a] mb-5 sm:mb-6 text-center sm:text-left">With Think4Ever, you get:</h3>
         
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-center">
           {/* Left Checkmarks */}

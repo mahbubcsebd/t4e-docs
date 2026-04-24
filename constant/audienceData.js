@@ -3,7 +3,7 @@ export const audienceDetailsData = {
     id: 'independent',
     overline: 'INDEPENDENT DEVELOPERS',
     title:
-      "The fastest path from idea to working system -<br class='hidden md:block' /> without the team, tools or overhead.",
+      "The fastest path from idea to working system -<br class='hidden md:block' /> without the team, tools and costly rework.",
     realityCards: [
       {
         id: 1,
@@ -11,7 +11,7 @@ export const audienceDetailsData = {
         description:
           "Design, architect, code, test, deploy - all on your shoulders. No team to delegate to, and hiring isn't an option.",
         statHtml:
-          "Context switching is the #1 productivity drain, costing developers <span class='text-[#e11d48] font-bold'>5-15 hrs/wk</span>",
+          "1 developer often covers <span class='text-[#e11d48] font-bold'>5+ roles</span>: product, architect, coder, tester, DevOps",
       },
       {
         id: 2,
@@ -19,7 +19,7 @@ export const audienceDetailsData = {
         description:
           'Docs, architecture, frontend, backend, APIs — all separate tools. More switching, more time, more cost.',
         statHtml:
-          "<span class='text-[#e11d48] font-bold'>23%</span> of dev time lost to context switching",
+          "Developers use <span class='text-[#e11d48] font-bold'>10+ tools daily</span> with 23% of dev time lost to context-switching",
       },
       {
         id: 3,
@@ -51,15 +51,15 @@ export const audienceDetailsData = {
     id: 'saas',
     overline: 'SOFTWARE AND SAAS FIRMS',
     title:
-      "Ship at the speed of your ambition — without<br class='hidden md:block' /> the complicated tech stack slowing you down.",
+      "Ship at the speed of your ambition — without<br class='hidden md:block' /> growing system complexity slowing you down.",
     realityCards: [
       {
         id: 1,
-        title: 'Too many tools slow down the build and add unnecessary cost',
+        title: 'Delivery slows as systems grow',
         description:
-          'Every sprint touches Figma, GitHub, Cursor, Postman, Vercel and more — each one a context switch, a licence, an integration to maintain — and time not spent shipping.',
+          'Every new feature touches more services, integrations, environments, and dependencies. What shipped fast at 10 customers becomes slow at scale.',
         statHtml:
-          "The average SaaS company runs <span class='text-[#e11d48] font-bold'>42-112 tools</span> — and over half go unused within <span class='text-[#e11d48] font-bold'>30 days</span>",
+          "Engineering velocity declines as <span class='text-[#e11d48] font-bold'>system complexity rises</span>",
       },
       {
         id: 2,
@@ -244,7 +244,7 @@ export const audienceDetailsData = {
     id: 'startups',
     overline: 'START-UPS & NEW VENTURES',
     title:
-      'Go from pitch deck to production — with start-up speed and a full stack built-in technical co-founder.',
+      "Go from pitch deck, to production at start-up speed -<br class='hidden md:block' /> with a \"built-in\" technical co-founder.",
     realityCards: [
       {
         id: 1,
@@ -252,7 +252,7 @@ export const audienceDetailsData = {
         description:
           'Founders spend valuable time defining features, workflows, architecture, priorities and MVP scope before real building even starts.',
         statHtml:
-          "<span class='text-[#e11d48] font-bold'>70%</span> of early-stage startups fail due to premature scaling or slow time-to-market",
+          "Founders spend <span class='text-[#e11d48] font-bold'>30–40%</span> of early-stage time on product and technical coordination instead of growth",
       },
       {
         id: 2,
