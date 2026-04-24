@@ -1,32 +1,12 @@
-'use client';
-import React, { useState } from 'react';
-import ContactForm from '@/components/sections/contact/ContactForm';
-import ContactSidebar from '@/components/sections/contact/ContactSidebar';
-import CalendarModal from '@/components/sections/contact/CalendarModal';
+import { constructMetadata } from '@/lib/metadata';
+import ContactPageContent from '@/components/sections/contact/ContactPageContent';
 
-const ContactUs = () => {
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date());
+export const metadata = constructMetadata({
+  title: "Contact Us - Think4Ever",
+  description: "Get in touch with the Think4Ever team. We're here to help you revolutionize your software development life cycle with multi-agent SDLC.",
+  canonicalUrl: "https://think4ever.ai/contact-us",
+});
 
-  return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
-      <div className="flex flex-col lg:flex-row gap-12 items-start">
-        {/* Main Content Area */}
-        <ContactForm />
-
-        {/* Sidebar Area */}
-        <ContactSidebar onCalendarOpen={() => setIsCalendarOpen(true)} />
-      </div>
-
-      {/* Reusable Calendar Modal */}
-      <CalendarModal 
-        isOpen={isCalendarOpen} 
-        onClose={() => setIsCalendarOpen(false)}
-        selectedDate={selectedDate}
-        onDateSelect={setSelectedDate}
-      />
-    </div>
-  );
-};
-
-export default ContactUs;
+export default function Page() {
+  return <ContactPageContent />;
+}

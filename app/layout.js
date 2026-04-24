@@ -1,22 +1,13 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { constructMetadata } from "@/lib/metadata";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: {
-    default: "Think4Ever - AI-Powered Full System SDLC",
-    template: "%s | Think4Ever",
-  },
-  description:
-    "Think4Ever is the first platform that designs and builds entire systems. From idea to integrated stack, human-directed and AI-powered.",
-  icons: {
-    icon: "/favicon.png",
-  },
-};
+export const metadata = constructMetadata();
 
 export default function RootLayout({ children }) {
   return (
