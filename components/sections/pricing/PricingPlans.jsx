@@ -13,11 +13,13 @@ const pricingPlans = [
     price: "25",
     unit: "/ seat / month",
     features: [
-      "100 orchestration credits per seat monthly",
-      "Full platform access",
-      "Pay only for usage beyond included credits",
+      "BYOK supported",
+      "Includes 100 monthly orchestration credits",
+      "Additional credits from $0.50–$1.50 depending on workload",
+      "Monthly managed usage caps apply",
     ],
-    note: "Usage Note: Additional credits billed at $0.15 per credit",
+    usageHeader: "AI Usage & Billing:",
+    usageNote: "Orchestration credits power AI tasks such as system generation, build workflows, and automation actions.",
     buttonText: "Buy Now",
     buttonIcon: ShoppingCart,
   },
@@ -30,14 +32,14 @@ const pricingPlans = [
     price: "Custom Pricing",
     prefix: null,
     unit: "",
-    priceNote: "Project Based Pricing",
     features: [
-      "Custom seat volumes",
-      "Tailored orchestration credit packages",
-      "Private cloud / dedicated environments",
-      "Advanced governance and compliance options",
+      "BYOK supported",
+      "Custom team credit packages",
+      "Shared usage pools available",
+      "Project-based pricing",
+      "Admin controls and monthly caps",
     ],
-    note: null,
+    usageHeader: "AI Usage & Billing:",
     buttonText: "Contact Sales",
     buttonIcon: Mail,
   },
@@ -49,14 +51,14 @@ const pricingPlans = [
     description: "For large organizations requiring advanced governance, security, scale, and tailored deployment models.",
     price: "Custom Pricing",
     unit: "",
-    priceNote: "Annual contract. Volume-based licensing.",
     features: [
-      "Custom seat volumes",
-      "Tailored orchestration credit packages",
-      "Private cloud / dedicated environments",
-      "Advanced governance and compliance options",
+      "BYOK supported",
+      "Private deployment options",
+      "Annual volume licensing",
+      "Custom usage pools and caps",
+      "Enterprise billing controls",
     ],
-    note: null,
+    usageHeader: "AI Usage & Billing:",
     buttonText: "Contact Sales",
     buttonIcon: Mail,
   },
@@ -93,8 +95,15 @@ const PricingPlans = () => {
 
           <div className="h-[1px] bg-gray-100 w-full mb-8" />
 
+          {/* AI Usage & Billing Header */}
+          <div className="mb-4">
+            <h3 className="font-bold text-[#111827] text-[14px]">
+              {plan.usageHeader}
+            </h3>
+          </div>
+
           {/* Features */}
-          <ul className="space-y-4 mb-12 flex-1">
+          <ul className="space-y-4 mb-8 flex-1">
             {plan.features.map((feature, idx) => (
               <li key={idx} className="flex items-start gap-3">
                 <Check className="h-4 w-4 text-gray-400 shrink-0 mt-1" />
@@ -103,10 +112,10 @@ const PricingPlans = () => {
             ))}
           </ul>
 
-          {/* Usage Note */}
-          {plan.note && (
+          {/* Additional Note (FYI for Think New) */}
+          {plan.usageNote && (
             <div className="mb-8 text-[13px] text-gray-500 leading-relaxed">
-              <span className="font-bold text-gray-700">Usage Note:</span> {plan.note.replace("Usage Note: ", "")}
+              <span className="font-bold text-gray-700">FYI:</span> {plan.usageNote}
             </div>
           )}
 
@@ -120,5 +129,6 @@ const PricingPlans = () => {
     </div>
   );
 };
+
 
 export default PricingPlans;

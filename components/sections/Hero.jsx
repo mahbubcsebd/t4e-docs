@@ -2,7 +2,7 @@ import { Heading } from '@/components/globals/Heading';
 import { Paragraph } from '@/components/globals/Paragraph';
 import { Video } from '@/components/globals/Video';
 import { Button } from '@/components/ui/button';
-import { Check, RefreshCw, Rocket, Code, Zap, Cloud, Briefcase, Building } from 'lucide-react';
+import { Check, RefreshCw, Rocket, Code, Zap, Cloud, Briefcase, Building, Layout, Layers, GitBranch, ShieldCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
@@ -33,7 +33,7 @@ export const Hero = () => {
           variant="orange"
           className="text-sm sm:text-base font-semibold px-6 sm:px-8 h-11 sm:h-12 transition-all rounded-md w-full sm:w-auto shadow-lg shadow-orange-500/20 w-auto"
         >
-          <Link href="/contact-us">Get Early Access</Link>
+          <Link href="/pricing">Get Early Access</Link>
         </Button>
       </section>
 
@@ -42,78 +42,92 @@ export const Hero = () => {
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-24 items-center">
           {/* Left Column: Checklist */}
           <div className="w-full lg:w-1/2 space-y-6 sm:space-y-8 pl-0 lg:pl-8 order-2 lg:order-1">
-            {/* Item 1 */}
+            {/* Item 1: Design Before Code */}
             <div className="flex gap-4">
               <div className="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 self-start flex items-center justify-center rounded-lg bg-[#eafaf1] border border-[#d1f5e1] text-[#10b981]">
-                <Check className="h-5 w-5 sm:h-6 sm:w-6 stroke-[3]" />
+                <Layout className="h-5 w-5 sm:h-6 sm:w-6 stroke-[3]" />
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-gray-900 mb-1 text-[15px] sm:text-base lg:text-lg leading-tight">
-                  Business Intent to Deployable Systems
+                  1. Design Before Code
                 </h3>
                 <Paragraph
                   size="sm"
                   className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
                 >
-                  Start before code exists—turn ideas into clear, structured
-                  software requirements.
+                  Start with system architecture, requirements, and workflows before a single line is generated.
                 </Paragraph>
               </div>
             </div>
 
-            {/* Item 2 */}
+            {/* Item 2: Orchestrate the full SDLC Stack */}
             <div className="flex gap-4">
               <div className="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 self-start flex items-center justify-center rounded-lg bg-[#fff0ea] border border-[#fde2d7] text-[#e25d24]">
                 <RefreshCw className="h-5 w-5 sm:h-6 sm:w-6 stroke-[3]" />
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-gray-900 mb-1 text-[15px] sm:text-base lg:text-lg leading-tight">
-                  Orchestrates the Full SDLC
+                  2. Orchestrate the full SDLC Stack
                 </h3>
                 <Paragraph
                   size="sm"
                   className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
                 >
-                  Specialized AI agents design, build, and validate systems
-                  end-to-end—not just code.
+                  Specialized AI agents design, build and validate systems - end-to-end - not just code.
                 </Paragraph>
               </div>
             </div>
 
-            {/* Item 3 */}
+            {/* Item 3: AI Code Generation Built In */}
             <div className="flex gap-4">
               <div className="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 self-start flex items-center justify-center rounded-lg bg-[#eaf0ff] border border-[#dbeafe] text-[#3b82f6]">
-                <Check className="h-5 w-5 sm:h-6 sm:w-6 stroke-[3]" />
+                <Code className="h-5 w-5 sm:h-6 sm:w-6 stroke-[3]" />
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-gray-900 mb-1 text-[15px] sm:text-base lg:text-lg leading-tight">
-                  Map Full System Dependencies Instantly
+                  3. AI Code Generation Built In
                 </h3>
                 <Paragraph
                   size="sm"
                   className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
                 >
-                  Generate architecture blueprints with real-time visibility
-                  across services and integrations.
+                  Generate production-ready frontend, backend, APIs, and workflows.
                 </Paragraph>
               </div>
             </div>
 
-            {/* Item 4 */}
+            {/* Item 4: Keep Systems Coherent */}
             <div className="flex gap-4">
-              <div className="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-[#eafaf1] border border-[#d1f5e1] text-[#10b981]">
-                <Check className="h-5 w-5 sm:h-6 sm:w-6 stroke-[3]" />
+              <div className="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 self-start flex items-center justify-center rounded-lg bg-[#f5f3ff] border border-[#ddd6fe] text-[#8b5cf6]">
+                <GitBranch className="h-5 w-5 sm:h-6 sm:w-6 stroke-[3]" />
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-gray-900 mb-1 text-[15px] sm:text-base lg:text-lg leading-tight">
-                  Keep Humans in Control
+                  4. Keep Systems Coherent
                 </h3>
                 <Paragraph
                   size="sm"
                   className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
                 >
-                  Review decisions, guide changes, and maintain oversight at
-                  every stage.
+                  Map dependencies and keep architecture aligned as systems evolve.
+                </Paragraph>
+              </div>
+            </div>
+
+            {/* Item 5: Human-Controlled Delivery */}
+            <div className="flex gap-4">
+              <div className="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-[#eafaf1] border border-[#d1f5e1] text-[#10b981]">
+                <ShieldCheck className="h-5 w-5 sm:h-6 sm:w-6 stroke-[3]" />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-bold text-gray-900 mb-1 text-[15px] sm:text-base lg:text-lg leading-tight">
+                  5. Human-Controlled Delivery
+                </h3>
+                <Paragraph
+                  size="sm"
+                  className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
+                >
+                  Review, guide, and approve every stage.
                 </Paragraph>
               </div>
             </div>

@@ -8,8 +8,10 @@ import {
   MessageSquare,
   Settings,
   Shield,
+  ArrowRight,
 } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const steps = [
   {
@@ -31,6 +33,7 @@ const steps = [
       'Architecture and modernization goals',
     ],
     tag: 'Setup',
+    screenshot: '/assets/images/product/foundation.png',
   },
   {
     id: 2,
@@ -51,6 +54,7 @@ const steps = [
       'AI-assisted requirement analysis and strengthening',
     ],
     tag: 'AI-assisted',
+    screenshot: '/assets/images/product/requirements.png',
   },
   {
     id: 3,
@@ -71,6 +75,7 @@ const steps = [
       'Database structures and screen flows',
     ],
     tag: 'Visual map',
+    screenshot: '/assets/images/product/architecture.png',
   },
   {
     id: 4,
@@ -91,6 +96,7 @@ const steps = [
       'Visual warnings and impact markers',
     ],
     tag: 'Real-time',
+    screenshot: '/assets/images/product/architecture.png',
   },
   {
     id: 5,
@@ -111,6 +117,7 @@ const steps = [
       'Sequence, impact, and scale context',
     ],
     tag: 'Modernization',
+    screenshot: '/assets/images/product/architecture.png',
   },
   {
     id: 6,
@@ -131,6 +138,7 @@ const steps = [
       'Centralized data governance in one view',
     ],
     tag: 'Visual ERD',
+    screenshot: '/assets/images/product/datamodel.png',
   },
   {
     id: 7,
@@ -151,6 +159,7 @@ const steps = [
       'CI/CD-aligned deployment with auto-generated docs',
     ],
     tag: 'Permissions · Rules · CI/CD · Docs',
+    screenshot: '/assets/images/product/foundation.png',
   },
 ];
 
@@ -258,6 +267,19 @@ const ProductPage = () => {
                   {current.description}
                 </p>
 
+                {/* Visual Preview / Screenshot */}
+                {current.screenshot && (
+                  <div className="mb-10 rounded-2xl overflow-hidden border border-gray-200 shadow-xl shadow-blue-500/5 group">
+                    <Image 
+                      src={current.screenshot} 
+                      alt={current.title}
+                      width={800}
+                      height={450}
+                      className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+
                 {/* Feature Card */}
                 <div className="bg-[#f7f8fa] border border-gray-200 rounded-xl p-6 sm:p-8 max-w-lg">
                   <p className="text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-4">
@@ -277,10 +299,20 @@ const ProductPage = () => {
                 </div>
 
                 {/* Step Tag */}
-                <div className="mt-6">
+                <div className="mt-8 pt-8 border-t border-gray-100 flex justify-between items-center">
                   <span className="text-[12px] font-semibold text-[#e25d24]">
                     {current.tag}
                   </span>
+                  
+                  {(activeStep ?? 0) < steps.length - 1 && (
+                    <button
+                      onClick={() => handleStepChange((activeStep ?? 0) + 1)}
+                      className="group flex items-center gap-2 text-[14px] font-bold text-[#1f2937] hover:text-[#e25d24] transition-all"
+                    >
+                      Next: {steps[(activeStep ?? 0) + 1].label}
+                      <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

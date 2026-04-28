@@ -26,11 +26,13 @@ import {
 import { cn } from '@/lib/utils';
 import Logo from '@/public/assets/images/think4ever-logo.png';
 import {
+  BookOpen,
   Briefcase,
   Building,
   Cloud,
   Code,
   Cpu,
+  FileText,
   Layers,
   Menu,
   Zap,
@@ -61,35 +63,22 @@ const PRODUCT_DATA = [
   },
 ];
 
-const SOLUTIONS_DATA = {
-  segments: [
-    {
-      title: 'Independent Developers',
-      desc: 'Solo developers, indie hackers, technical founders, freelancers',
-      href: '/#indie-devs',
-    },
-    {
-      title: 'Start-ups & New Ventures',
-      desc: 'Early-stage founders, seed and Series A product teams',
-      href: '/#startups',
-    },
-    {
-      title: 'Software & Saas Companies',
-      desc: 'SaaS companies, software firms, scale-ups, product and engineering teams',
-      href: '/#software-saas',
-    },
-    {
-      title: 'Systems Integrators / Consultants',
-      desc: 'Management consultants, SI partners, consulting firms, migration specialists, managed service providers',
-      href: '/#systems-integrators',
-    },
-    {
-      title: 'Enterprise & Mid-Size Business',
-      desc: 'Business growth leads, digital heads, CIOs/CTOs, enterprise architects',
-      href: '/#enterprise-it',
-    },
-  ],
-};
+const RESOURCES_DATA = [
+  {
+    title: 'Documentation',
+    desc: 'Guides, API references, and everything you need to build.',
+    href: '/docs',
+    icon: BookOpen,
+  },
+  {
+    title: 'Blog',
+    desc: 'Insights, updates, and deep dives into agentic development.',
+    href: '/blog',
+    icon: FileText,
+  },
+];
+
+
 
 const ListItem = React.forwardRef(
   ({ className, title, children, icon: Icon, href, ...props }, ref) => {
@@ -215,47 +204,7 @@ export const Header = () => {
               </NavigationMenuContent>
             </NavigationMenuItem>
 
-            <NavigationMenuItem>
-              <NavigationMenuTrigger
-                className={cn(
-                  'transition-colors',
-                  pathname.startsWith('/#') || isActive('/')
-                    ? 'text-gray-900'
-                    : 'text-gray-500 hover:text-gray-900',
-                )}
-              >
-                Solutions
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <div className="p-4 w-[600px]">
-                  <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest pl-3 mb-4">
-                    By Segment
-                  </h4>
-                  <ul className="grid gap-1">
-                    {SOLUTIONS_DATA.segments.map((item) => (
-                      <ListItem
-                        key={item.title}
-                        title={item.title}
-                        icon={
-                          item.title.includes('Independent')
-                            ? Code
-                            : item.title.includes('Start-ups')
-                              ? Zap
-                              : item.title.includes('Software')
-                                ? Cloud
-                                : item.title.includes('Enterprise')
-                                  ? Building
-                                  : Briefcase
-                        }
-                        href={item.href}
-                      >
-                        {item.desc}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </div>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
+
 
             <NavigationMenuItem>
               <NavigationMenuLink
@@ -273,18 +222,30 @@ export const Header = () => {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuLink
-                asChild
+              <NavigationMenuTrigger
                 className={cn(
-                  navigationMenuTriggerStyle(),
-                  isActive('/faq')
-                    ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
-                    : 'text-gray-500 hover:text-gray-900 bg-transparent',
-                  'font-medium transition-colors',
+                  'transition-colors',
+                  isActive('/blog') || isActive('/docs')
+                    ? 'text-gray-900'
+                    : 'text-gray-500 hover:text-gray-900',
                 )}
               >
-                <Link href="/faq">FAQ</Link>
-              </NavigationMenuLink>
+                Resources
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-2 p-4 outline-none">
+                  {RESOURCES_DATA.map((item) => (
+                    <ListItem
+                      key={item.title}
+                      title={item.title}
+                      icon={item.icon}
+                      href={item.href}
+                    >
+                      {item.desc}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
@@ -312,7 +273,7 @@ export const Header = () => {
           variant="orange"
           className="hidden sm:flex font-semibold px-5 py-2 h-9 text-sm rounded-md transition-all whitespace-nowrap shadow-sm"
         >
-          <Link href="/contact-us">Get Early Access</Link>
+          <Link href="/pricing">Get Early Access</Link>
         </Button>
 
         <Sheet>
@@ -400,38 +361,7 @@ export const Header = () => {
                   </AccordionContent>
                 </AccordionItem>
 
-                {/* Solutions */}
-                <AccordionItem value="solutions" className="border-0">
-                  <AccordionTrigger className="py-3 hover:no-underline text-[18px] font-bold text-gray-900">
-                    Solutions
-                  </AccordionTrigger>
-                  <AccordionContent className="pt-2 pb-4">
-                    <div className="grid gap-6 pl-4 border-l border-gray-100 ml-1">
-                      <div className="space-y-3 pt-2">
-                        <div className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">
-                          By Segment
-                        </div>
-                        <div className="grid gap-4">
-                          {SOLUTIONS_DATA.segments.map((item) => (
-                            <SheetClose key={item.title} asChild>
-                              <Link
-                                href={item.href}
-                                className="group block py-1"
-                              >
-                                <span className="block text-[15.5px] font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
-                                  {item.title}
-                                </span>
-                                <span className="block text-[12.5px] text-gray-500 mt-1 leading-relaxed font-medium">
-                                  {item.desc}
-                                </span>
-                              </Link>
-                            </SheetClose>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
+
 
                 {/* Pricing */}
                 <AccordionItem value="pricing" className="border-0">
@@ -450,19 +380,27 @@ export const Header = () => {
                   </SheetClose>
                 </AccordionItem>
 
-                {/* FAQ */}
-                <AccordionItem value="faq" className="border-0">
-                  <SheetClose asChild>
-                    <Link
-                      href="/faq"
-                      className={cn(
-                        'flex py-3 text-[18px] font-bold transition-colors',
-                        isActive('/faq') ? 'text-[#3b82f6]' : 'text-gray-900',
-                      )}
-                    >
-                      FAQ
-                    </Link>
-                  </SheetClose>
+                {/* Resources */}
+                <AccordionItem value="resources" className="border-0">
+                  <AccordionTrigger className="py-3 hover:no-underline text-[18px] font-bold text-gray-900">
+                    Resources
+                  </AccordionTrigger>
+                  <AccordionContent className="pt-2 pb-4">
+                    <div className="grid gap-4 pl-4 border-l border-gray-100 ml-1">
+                      {RESOURCES_DATA.map((item) => (
+                        <SheetClose key={item.title} asChild>
+                          <Link href={item.href} className="group block">
+                            <span className="block text-[15px] font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
+                              {item.title}
+                            </span>
+                            <span className="block text-xs text-gray-500 mt-0.5">
+                              {item.desc}
+                            </span>
+                          </Link>
+                        </SheetClose>
+                      ))}
+                    </div>
+                  </AccordionContent>
                 </AccordionItem>
 
                 {/* Contact Us */}
@@ -490,7 +428,7 @@ export const Header = () => {
                 variant="orange"
                 className="w-full font-bold py-6 rounded-lg text-lg shadow-xl shadow-orange-500/20"
               >
-                <Link href="/contact-us">Get Early Access</Link>
+                <Link href="/pricing">Get Early Access</Link>
               </Button>
             </div>
           </SheetContent>

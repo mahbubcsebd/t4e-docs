@@ -2,6 +2,7 @@ import React from "react";
 import { Heading } from "@/components/globals/Heading";
 import { Paragraph } from "@/components/globals/Paragraph";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const BottomCTA = () => {
   return (
@@ -24,7 +25,7 @@ export const BottomCTA = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button asChild className="bg-[#e25d24] hover:bg-[#c94d1b] text-white h-14 px-10 text-lg font-bold rounded-xl shadow-xl transition-all hover:scale-105 w-full sm:w-auto">
-              <Link href="/contact-us">Get Early Access</Link>
+              <Link href="/pricing">Get Early Access</Link>
             </Button>
             <Button variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 h-14 px-10 text-lg font-bold rounded-xl transition-all w-full sm:w-auto">
               Schedule a Demo

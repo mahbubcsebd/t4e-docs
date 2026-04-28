@@ -4,11 +4,12 @@ import { StartupsAndVentures } from "@/components/sections/StartupsAndVentures";
 import { SoftwareAndSaaS } from "@/components/sections/SoftwareAndSaaS";
 import { SystemsIntegrators } from "@/components/sections/SystemsIntegrators";
 import { EnterpriseITTeams } from "@/components/sections/EnterpriseITTeams";
+import { constructMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: "think4ever | Turn Ideas into Integrated Systems",
   description: "The first multi-agent SDLC platform that designs, builds and deploys production-ready systems.",
-};
+});
 
 const HomePage = () => {
   return (

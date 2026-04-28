@@ -1,10 +1,12 @@
 import PageBanner from '@/components/sections/PageBanner';
 import Link from 'next/link';
+import { constructMetadata } from "@/lib/metadata";
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: 'Terms and Conditions | Think4Ever',
   description: 'Read the Terms and Conditions for using Think4Ever services and website.',
-};
+  canonicalUrl: "https://www.think4ever.com/new_site/terms-and-conditions/",
+});
 
 const TermsAndConditions = () => {
   return (

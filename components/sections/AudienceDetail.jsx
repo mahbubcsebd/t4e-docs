@@ -80,7 +80,7 @@ export const AudienceDetail = ({ data }) => {
 
       <div className="mt-12 sm:mt-20 mb-4 sm:mb-8 w-full sm:w-auto px-4 sm:px-0">
         <Button asChild variant="orange" className="w-full sm:w-auto h-[50px] sm:h-[52px] px-10 text-[16px] sm:text-[17px] font-semibold shadow-md hover:shadow-lg rounded-md transition-all">
-          <Link href={data.ctaHref || "/contact-us"}>Get Early Access</Link>
+          <Link href={data.ctaHref || "/pricing"}>Get Early Access</Link>
         </Button>
       </div>
     </section>
