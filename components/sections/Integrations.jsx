@@ -16,7 +16,7 @@ export const Integrations = () => {
   return (
     <section className="py-24 px-6 lg:px-8 w-full bg-[#f8fafc]">
       <div className="max-w-6xl mx-auto text-center">
-        <div className="uppercase tracking-widest text-[12px] font-bold text-[#627aa8] mb-4">
+        <div className="uppercase tracking-widest text-[12px] font-bold text-[#025da9] mb-4">
           ANY STACK, ANY SCALE
         </div>
         <Heading level="h2" className="text-3xl sm:text-4xl font-bold text-[#0f172a] mb-6">

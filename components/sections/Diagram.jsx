@@ -8,6 +8,7 @@ import {
   MessageSquare,
   Settings,
   Shield,
+  Rocket,
 } from 'lucide-react';
 
 const steps = [
@@ -67,23 +68,32 @@ const steps = [
   },
   {
     id: 7,
-    title: 'Set roles, rules, and deploy',
-    desc: 'Define permissions, business rules, and governance — then deploy with CI/CD integration. Auto-generated documentation ships with every deployment.',
-    tags: ['Permissions', 'Rules engine', 'CI/CD', 'Docs'],
+    title: 'Set Roles and rules',
+    desc: 'Define permissions, business rules and governance.',
+    tag: 'Permissions',
     icon: Shield,
     color: 'green',
     num: '07',
+  },
+  {
+    id: 8,
+    title: 'Build',
+    desc: 'Deploy with CI/CD integration. Auto-generated documentation ships with every deployment.',
+    tag: 'CI/CD',
+    icon: Rocket,
+    color: 'orange',
+    num: '08',
   },
 ];
 
 const StepCard = ({ step, isActive, onClick, className = '' }) => {
   const Icon = step.icon;
   const colors = {
-    blue: isActive ? 'border-blue-500 bg-blue-50/50 shadow-lg shadow-blue-500/10' : 'border-gray-100 bg-white hover:border-blue-200 hover:shadow-blue-500/10',
-    purple: isActive ? 'border-purple-500 bg-purple-50/50 shadow-lg shadow-purple-500/10' : 'border-gray-100 bg-white hover:border-purple-200 hover:shadow-purple-500/10',
-    green: isActive ? 'border-emerald-500 bg-emerald-50/50 shadow-lg shadow-emerald-500/10' : 'border-gray-100 bg-white hover:border-emerald-200 hover:shadow-emerald-500/10',
-    orange: isActive ? 'border-orange-500 bg-orange-50/50 shadow-lg shadow-orange-500/10' : 'border-orange-100 bg-[#fffef4] hover:border-orange-300 hover:shadow-orange-500/10',
-    pink: isActive ? 'border-pink-500 bg-pink-50/50 shadow-lg shadow-pink-500/10' : 'border-gray-100 bg-white hover:border-pink-200 hover:shadow-pink-500/10',
+    blue: isActive ? 'border-blue-500 bg-blue-50/50 shadow-lg shadow-blue-500/10' : 'border-blue-200 shadow-sm bg-white hover:border-blue-300 hover:shadow-blue-500/10',
+    purple: isActive ? 'border-purple-500 bg-purple-50/50 shadow-lg shadow-purple-500/10' : 'border-purple-200 shadow-sm bg-white hover:border-purple-300 hover:shadow-purple-500/10',
+    green: isActive ? 'border-emerald-500 bg-emerald-50/50 shadow-lg shadow-emerald-500/10' : 'border-emerald-200 shadow-sm bg-white hover:border-emerald-300 hover:shadow-emerald-500/10',
+    orange: isActive ? 'border-orange-500 bg-orange-50/50 shadow-lg shadow-orange-500/10' : 'border-orange-200 shadow-sm bg-[#fffef4] hover:border-orange-300 hover:shadow-orange-500/10',
+    pink: isActive ? 'border-pink-500 bg-pink-50/50 shadow-lg shadow-pink-500/10' : 'border-pink-200 shadow-sm bg-white hover:border-pink-300 hover:shadow-pink-500/10',
   };
 
   const iconCircle = {
@@ -208,107 +218,30 @@ export const Diagram = ({ activeIndex = 0, onStepClick = () => {} }) => {
           </div>
 
           <VerticalArrow className="left-[12.5%] bottom-[-50px] h-12" />
-          <VerticalArrow className="left-[37.5%] bottom-[-75px] h-18" />
-          <VerticalArrow className="left-[87.5%] bottom-[-75px] h-18" />
         </div>
 
-        {/* Phase: Design (Steps 5-6) */}
+        {/* Phase: Design & Build (Steps 5-8) */}
         <div className="relative mb-24">
           <div className="absolute top-[-30px] left-0">
             <div className="inline-block bg-pink-50/50 text-pink-600 px-3 py-1 rounded text-[10px] font-bold uppercase tracking-[0.2em] border border-pink-100/50 xl:ml-[105px]">
-              Design
+              Design & Build
             </div>
           </div>
 
-          <div className="grid grid-cols-4 gap-6 relative">
-            <div className="col-start-2 relative">
+          <div className="grid grid-cols-4 gap-6 relative mt-8">
+            <HorizontalArrow className="top-[45%] left-[22.5%] w-[7%]" />
+            <HorizontalArrow className="top-[45%] left-[47.5%] w-[7%]" />
+            <HorizontalArrow className="top-[45%] left-[72.5%] w-[7%]" />
+
+            {steps.slice(4, 8).map((step, idx) => (
               <StepCard
-                step={steps[4]}
-                isActive={activeIndex === 4}
-                onClick={() => onStepClick(4)}
+                key={step.id}
+                step={step}
+                isActive={activeIndex === idx + 4}
+                onClick={() => onStepClick(idx + 4)}
                 className="z-10"
               />
-              <HorizontalArrow className="top-[45%] left-[102%] w-[98%]" />
-            </div>
-            <div className="col-start-4">
-              <StepCard
-                step={steps[5]}
-                isActive={activeIndex === 5}
-                onClick={() => onStepClick(5)}
-                className="z-10"
-              />
-            </div>
-          </div>
-
-          <VerticalArrow className="left-[37.5%] bottom-[-85px] h-20" />
-        </div>
-
-        {/* Phase: Deploy (Step 7) */}
-        <div className="relative mb-12">
-          <div className="inline-block bg-orange-50/50 text-orange-600 px-3 py-1 rounded text-[10px] font-bold uppercase tracking-[0.2em] mb-8 border border-orange-100/50">
-            Deploy
-          </div>
-
-          <button
-            onClick={() => onStepClick(6)}
-            className={`w-full group border rounded-xl p-6 sm:p-8 relative transition-all duration-500 ease-out text-left
-              ${activeIndex === 6 ? 'border-emerald-500 bg-emerald-50/50 shadow-lg -translate-y-1 scale-[1.01]' : 'border-green-200 bg-[#f9fffb] hover:-translate-y-2 hover:scale-[1.01] hover:shadow-2xl hover:border-emerald-300'}`}
-          >
-            <div className={`absolute top-3 right-4 w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold transition-all duration-500
-              ${activeIndex === 6 ? 'bg-emerald-700 scale-110' : 'bg-emerald-600 group-hover:scale-110 group-hover:rotate-12 group-hover:bg-emerald-700'} text-white`}>
-              07
-            </div>
-            <div className="flex items-center gap-8">
-              <div className={`w-16 h-16 rounded-xl bg-white border flex items-center justify-center shrink-0 shadow-sm transition-all duration-500
-                ${activeIndex === 6 ? 'border-emerald-200 scale-110 shadow-md' : 'border-green-100 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-md'}`}>
-                <Shield className={`w-8 h-8 transition-colors duration-500 ${activeIndex === 6 ? 'text-emerald-700' : 'text-emerald-500 group-hover:text-emerald-600'}`} />
-              </div>
-              <div className="flex-1">
-                <h3 className={`text-[18px] font-bold mb-1.5 transition-colors duration-300 ${activeIndex === 6 ? 'text-emerald-900' : 'text-[#1f2937] group-hover:text-emerald-900'}`}>
-                  {steps[6].title}
-                </h3>
-                <p className={`text-[14px] leading-relaxed max-w-4xl transition-colors duration-300 ${activeIndex === 6 ? 'text-emerald-700' : 'text-gray-500 group-hover:text-gray-600'}`}>
-                  {steps[6].desc}
-                </p>
-                <div className="flex gap-3 mt-4">
-                  {steps[6].tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-md border transition-all duration-300
-                        ${activeIndex === 6 ? 'bg-white border-emerald-200 text-emerald-700' : 'bg-emerald-50/50 text-emerald-600 border-transparent group-hover:bg-white group-hover:border-emerald-200'}`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </button>
-
-          <VerticalArrow className="left-1/2 -translate-x-1/2 bottom-[-40px] h-10" />
-        </div>
-
-        {/* Final Result Box */}
-        <div className="group bg-[#ebf3ff]/60 border border-blue-100 rounded-xl p-6 flex items-center gap-6 relative transition-all duration-700 ease-in-out hover:bg-blue-50/80 hover:shadow-xl hover:border-blue-200 cursor-default overflow-hidden">
-          {/* Inner Light Effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-
-          <div className="h-16 w-16 bg-white rounded-xl border border-blue-50 flex items-center justify-center shrink-0 shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 group-hover:shadow-md z-10">
-            <Check className="w-9 h-9 text-blue-500 stroke-[3] transition-all duration-500 group-hover:scale-110" />
-          </div>
-          <div className="flex-1 z-10">
-            <h3 className="text-[16px] sm:text-[20px] font-bold text-[#1b449b] mb-1 transition-colors duration-300 group-hover:text-blue-900">
-              Production-ready system — from idea to integrated stack
-            </h3>
-            <p className="text-[13px] text-[#1b449b]/60 font-semibold tracking-wide transition-colors duration-300 group-hover:text-blue-700">
-              Human-directed · AI-powered · Fully documented · Instantly
-              deployed
-            </p>
-          </div>
-          <div className="absolute right-0 top-0 bottom-0 px-6 flex items-center border-l border-blue-100 hidden md:flex transition-all duration-500 group-hover:bg-blue-50/50">
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] opacity-30 transition-all duration-500 group-hover:opacity-60 group-hover:text-blue-500">
-              Think4Ever platform
-            </span>
+            ))}
           </div>
         </div>
       </div>

@@ -26,7 +26,7 @@ export const StillHaveQuestions = () => {
               </Link>
             </Button>
             <Button asChild className="h-11 px-8 bg-[#e25d24] hover:bg-[#c94f1d] text-white rounded-md font-bold text-[13px] shadow-lg shadow-orange-500/15 active:scale-[0.98] transition-all">
-              <Link href="/pricing" className="flex items-center gap-2">
+              <Link href="/get-early-access" className="flex items-center gap-2">
                 <Rocket size={16} />
                 Get Early Access
               </Link>

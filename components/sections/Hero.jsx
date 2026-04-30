@@ -2,8 +2,19 @@ import { Heading } from '@/components/globals/Heading';
 import { Paragraph } from '@/components/globals/Paragraph';
 import { Video } from '@/components/globals/Video';
 import { Button } from '@/components/ui/button';
-import { Check, RefreshCw, Rocket, Code, Zap, Cloud, Briefcase, Building, Layout, Layers, GitBranch, ShieldCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Logo from '@/public/assets/images/think4ever-logo.png';
+import {
+  Briefcase,
+  Building,
+  Cloud,
+  Code,
+  GitBranch,
+  Layout,
+  RefreshCw,
+  ShieldCheck,
+  Zap,
+} from 'lucide-react';
 import Link from 'next/link';
 
 export const Hero = () => {
@@ -33,7 +44,7 @@ export const Hero = () => {
           variant="orange"
           className="text-sm sm:text-base font-semibold px-6 sm:px-8 h-11 sm:h-12 transition-all rounded-md w-full sm:w-auto shadow-lg shadow-orange-500/20 w-auto"
         >
-          <Link href="/pricing">Get Early Access</Link>
+          <Link href="/get-early-access">Get Early Access</Link>
         </Button>
       </section>
 
@@ -55,7 +66,8 @@ export const Hero = () => {
                   size="sm"
                   className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
                 >
-                  Start with system architecture, requirements, and workflows before a single line is generated.
+                  Start with system architecture, requirements, and workflows
+                  before a single line is generated.
                 </Paragraph>
               </div>
             </div>
@@ -73,7 +85,8 @@ export const Hero = () => {
                   size="sm"
                   className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
                 >
-                  Specialized AI agents design, build and validate systems - end-to-end - not just code.
+                  Specialized AI agents design, build and validate systems -
+                  end-to-end - not just code.
                 </Paragraph>
               </div>
             </div>
@@ -91,7 +104,8 @@ export const Hero = () => {
                   size="sm"
                   className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
                 >
-                  Generate production-ready frontend, backend, APIs, and workflows.
+                  Generate production-ready frontend, backend, APIs, and
+                  workflows.
                 </Paragraph>
               </div>
             </div>
@@ -109,7 +123,8 @@ export const Hero = () => {
                   size="sm"
                   className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
                 >
-                  Map dependencies and keep architecture aligned as systems evolve.
+                  Map dependencies and keep architecture aligned as systems
+                  evolve.
                 </Paragraph>
               </div>
             </div>
@@ -133,14 +148,19 @@ export const Hero = () => {
             </div>
           </div>
 
-           {/* Right Column: Video */}
+          {/* Right Column: Video */}
           <div className="w-full lg:w-1/2 flex flex-col items-center order-1 lg:order-2">
             <Video
-              url="https://www.youtube.com/watch?v=CQpIODqNFek"
-              className="aspect-video w-full max-w-[550px] bg-gradient-to-br from-[#4161a0] to-[#30477a] shadow-2xl rounded-2xl"
+              url="https://www.youtube.com/watch?v=nW37QETUq3o"
+              thumbnail={Logo}
+              title="Watch how it works"
+              className="aspect-video w-full max-w-[550px] shadow-xl rounded-2xl border border-gray-200"
             />
             <div className="mt-8">
-              <Button asChild className="bg-[#64748b] hover:bg-[#475569] text-white h-11 px-8 font-bold transition-all rounded-md shadow-md">
+              <Button
+                asChild
+                className="bg-[#64748b] hover:bg-[#475569] text-white h-11 px-8 font-bold transition-all rounded-md shadow-md"
+              >
                 <Link href="/product">Explore Product</Link>
               </Button>
             </div>
@@ -151,53 +171,53 @@ export const Hero = () => {
       {/* Segment Boxes Section */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pb-16 sm:pb-24 relative animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
         <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 border-t border-dashed border-gray-200 -z-10 hidden xl:block mx-12"></div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-3 xl:gap-4 relative">
           {[
-            { 
-              title: 'Independent Developers', 
-              href: '/#indie-devs', 
-              icon: Code, 
+            {
+              title: 'Independent Developers',
+              href: '/#indie-devs',
+              icon: Code,
               color: 'blue',
               bg: 'bg-blue-50',
               text: 'text-blue-500',
-              border: 'border-blue-100'
+              border: 'border-blue-100',
             },
-            { 
-              title: 'Start-ups & New Ventures', 
-              href: '/#startups', 
-              icon: Zap, 
+            {
+              title: 'Start-ups & New Ventures',
+              href: '/#startups',
+              icon: Zap,
               color: 'emerald',
               bg: 'bg-emerald-50',
               text: 'text-emerald-500',
-              border: 'border-emerald-100'
+              border: 'border-emerald-100',
             },
-            { 
-              title: 'Software & SaaS Companies', 
-              href: '/#software-saas', 
-              icon: Cloud, 
+            {
+              title: 'Software & SaaS Companies',
+              href: '/#software-saas',
+              icon: Cloud,
               color: 'brand',
               bg: 'bg-orange-50',
               text: 'text-[#e25d24]',
-              border: 'border-orange-100'
+              border: 'border-orange-100',
             },
-            { 
-              title: 'Systems Integrators / Consultants', 
-              href: '/#systems-integrators', 
-              icon: Briefcase, 
+            {
+              title: 'Systems Integrators / Consultants',
+              href: '/#systems-integrators',
+              icon: Briefcase,
               color: 'violet',
               bg: 'bg-violet-50',
               text: 'text-violet-500',
-              border: 'border-violet-100'
+              border: 'border-violet-100',
             },
-            { 
-              title: 'Enterprise & Mid-Size Business', 
-              href: '/#enterprise-it', 
-              icon: Building, 
+            {
+              title: 'Enterprise & Mid-Size Business',
+              href: '/#enterprise-it',
+              icon: Building,
               color: 'teal',
               bg: 'bg-teal-50',
               text: 'text-teal-500',
-              border: 'border-teal-100'
+              border: 'border-teal-100',
             },
           ].map((seg, idx) => {
             const Icon = seg.icon;
@@ -207,10 +227,15 @@ export const Hero = () => {
                 href={seg.href}
                 className="group bg-white border border-gray-100 rounded-xl p-5 flex flex-col items-center text-center shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] hover:shadow-lg hover:-translate-y-1.5 transition-all cursor-pointer"
               >
-                <div className={cn(
-                  "h-12 w-12 rounded-lg flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3",
-                  seg.bg, seg.text, "border", seg.border
-                )}>
+                <div
+                  className={cn(
+                    'h-12 w-12 rounded-lg flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3',
+                    seg.bg,
+                    seg.text,
+                    'border',
+                    seg.border,
+                  )}
+                >
                   <Icon size={20} strokeWidth={2.5} />
                 </div>
                 <h4 className="text-[13px] xl:text-[14px] font-bold text-gray-900 leading-snug group-hover:text-[#3b82f6] transition-colors">

@@ -25,10 +25,10 @@ export const BottomCTA = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button asChild className="bg-[#e25d24] hover:bg-[#c94d1b] text-white h-14 px-10 text-lg font-bold rounded-xl shadow-xl transition-all hover:scale-105 w-full sm:w-auto">
-              <Link href="/pricing">Get Early Access</Link>
+              <Link href="/get-early-access">Get Early Access</Link>
             </Button>
-            <Button variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 h-14 px-10 text-lg font-bold rounded-xl transition-all w-full sm:w-auto">
-              Schedule a Demo
+            <Button asChild variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 h-14 px-10 text-lg font-bold rounded-xl transition-all w-full sm:w-auto">
+              <Link href="/contact-us">Contact Us</Link>
             </Button>
           </div>
         </div>

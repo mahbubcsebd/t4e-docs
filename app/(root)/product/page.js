@@ -9,6 +9,7 @@ import {
   Settings,
   Shield,
   ArrowRight,
+  Rocket,
 } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
@@ -33,7 +34,7 @@ const steps = [
       'Architecture and modernization goals',
     ],
     tag: 'Setup',
-    screenshot: '/assets/images/product/foundation.png',
+    screenshot: '/new_site/assets/images/product/step-1.png',
   },
   {
     id: 2,
@@ -54,7 +55,7 @@ const steps = [
       'AI-assisted requirement analysis and strengthening',
     ],
     tag: 'AI-assisted',
-    screenshot: '/assets/images/product/requirements.png',
+    screenshot: '/new_site/assets/images/product/step-2.png',
   },
   {
     id: 3,
@@ -75,7 +76,7 @@ const steps = [
       'Database structures and screen flows',
     ],
     tag: 'Visual map',
-    screenshot: '/assets/images/product/architecture.png',
+    screenshot: '/new_site/assets/images/product/step-3.png',
   },
   {
     id: 4,
@@ -96,7 +97,7 @@ const steps = [
       'Visual warnings and impact markers',
     ],
     tag: 'Real-time',
-    screenshot: '/assets/images/product/architecture.png',
+    screenshot: '/new_site/assets/images/product/step-4.png',
   },
   {
     id: 5,
@@ -117,7 +118,7 @@ const steps = [
       'Sequence, impact, and scale context',
     ],
     tag: 'Modernization',
-    screenshot: '/assets/images/product/architecture.png',
+    screenshot: '/new_site/assets/images/product/step-5.png',
   },
   {
     id: 6,
@@ -138,28 +139,48 @@ const steps = [
       'Centralized data governance in one view',
     ],
     tag: 'Visual ERD',
-    screenshot: '/assets/images/product/datamodel.png',
+    screenshot: '/new_site/assets/images/product/step-6.png',
   },
   {
     id: 7,
-    phase: 'DEPLOY',
-    label: 'Set roles, rules & deploy',
+    phase: 'DESIGN',
+    label: 'Set Roles and rules',
     badge: 'STEP 07',
-    badgeColor: 'bg-amber-50 text-amber-600',
-    iconColor: 'text-amber-500',
+    badgeColor: 'bg-green-50 text-green-600',
+    iconColor: 'text-green-500',
     icon: Shield,
-    title: 'Set Roles, Rules, and Deploy',
+    title: 'Set Roles and rules',
     description:
-      'Define what each user type can see and do. Establish business rules that govern system behavior — validations, constraints, policies, and automation logic. Then deploy with CI/CD alignment and auto-generated project documentation.',
-    cardTitle: 'GOVERNANCE AND DEPLOYMENT',
+      'Define permissions, business rules and governance.',
+    cardTitle: 'GOVERNANCE',
     cardItems: [
       'Permissions matrix — user types and access controls',
       'Rules engine — validations, policies, automation',
       'Visual rules dashboard with warnings and filters',
-      'CI/CD-aligned deployment with auto-generated docs',
     ],
-    tag: 'Permissions · Rules · CI/CD · Docs',
-    screenshot: '/assets/images/product/foundation.png',
+    tag: 'Permissions · Rules',
+    screenshot: '/new_site/assets/images/product/step-7.png',
+  },
+  {
+    id: 8,
+    phase: 'BUILD',
+    label: 'Build',
+    badge: 'STEP 08',
+    badgeColor: 'bg-orange-50 text-[#e25d24]',
+    iconColor: 'text-[#e25d24]',
+    icon: Rocket,
+    title: 'Build & Deploy',
+    description:
+      'Deploy with CI/CD integration. Auto-generated documentation ships with every deployment.',
+    cardTitle: 'DEPLOYMENT',
+    cardItems: [
+      'CI/CD-aligned deployment',
+      'Auto-generated project documentation',
+      'Instant cloud integration',
+      'Continuous delivery pipeline',
+    ],
+    tag: 'CI/CD · Docs',
+    screenshot: '/new_site/assets/images/product/step-7.png',
   },
 ];
 
@@ -186,12 +207,12 @@ const ProductPage = () => {
     <main className="min-h-screen bg-white">
       {/* Hero */}
       <section className="pt-12 sm:pt-24 pb-10 sm:pb-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center">
-        <p className="text-[10px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#e25d24] mb-3 sm:mb-4">
+        <p className="text-[10px] sm:text-[12px] font-bold tracking-[0.2em] uppercase text-[#025da9] mb-3 sm:mb-4">
           HOW IT WORKS
         </p>
         <h1 className="text-[1.75rem] sm:text-[2.75rem] lg:text-[3.25rem] font-bold text-[#1f2937] leading-[1.1] tracking-tight mb-4 sm:mb-5">
           From idea to integrated system
-          <span className="text-[#e25d24]">.</span>
+          <span className="text-[#025da9]">.</span>
         </h1>
         <p className="text-gray-500 text-[14px] sm:text-lg max-w-2xl mx-auto leading-relaxed px-2">
           Seven connected steps. One continuous platform. Human-directed at

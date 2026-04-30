@@ -68,10 +68,10 @@ const ContactForm = () => {
           <span className="text-[11px] font-bold text-gray-400 uppercase tracking-[0.2em]">General Inquiry</span>
         </div>
         <h2 className="text-[26px] sm:text-[30px] font-bold text-[#1f2937] mb-2 tracking-tight">
-          Request a Product Demo
+          Contact Us
         </h2>
         <p className="text-gray-500 text-[14px] leading-relaxed max-w-2xl font-medium">
-          See the SDLC Engineering Platform in action. Fill out the form and we'll schedule a personalized demo for your team.
+          Have questions or want to learn more? Fill out the form and our team will get back to you shortly.
         </p>
       </div>
 
@@ -187,7 +187,7 @@ const ContactForm = () => {
               <Check className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 peer-checked:opacity-100 transition-opacity" />
             </div>
             <span className="text-[12px] text-gray-500 font-bold select-none">
-              I agree to the <Link href="#" className="text-[#5c67f2] hover:underline">Privacy Policy</Link> and consent to being contacted about a demo.
+              I agree to the <Link href="#" className="text-[#5c67f2] hover:underline">Privacy Policy</Link> and consent to being contacted.
             </span>
           </label>
           {errors.agreed && (
@@ -201,7 +201,7 @@ const ContactForm = () => {
           className="w-full h-11 bg-[#5c67f2] hover:bg-[#4a54d1] text-white rounded-md font-bold text-[15px] flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.98]"
         >
           <CalendarIcon size={16} />
-          {isSubmitting ? 'Sending...' : 'Request Demo'}
+          {isSubmitting ? 'Sending...' : 'Contact Us'}
         </Button>
       </form>
     </div>

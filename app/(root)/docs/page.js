@@ -116,30 +116,6 @@ export default function DocsPage() {
           ))}
         </div>
       </div>
-
-      {/* Footer Support Section */}
-      {/* <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24 pb-24 text-center">
-        <div className="bg-[#f8fafc] rounded-[2.5rem] p-12 border border-gray-100">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Can't find what you're looking for?</h3>
-          <p className="text-gray-500 mb-8 max-w-xl mx-auto">
-            Our team and community are here to help. Reach out to us or join our Discord.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/contact-us"
-              className="bg-gray-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-gray-800 transition-all w-full sm:w-auto"
-            >
-              Contact Support
-            </Link>
-            <Link
-              href="#"
-              className="bg-white border border-gray-200 text-gray-900 px-8 py-3 rounded-xl font-bold hover:bg-gray-50 transition-all w-full sm:w-auto"
-            >
-              Join Discord
-            </Link>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 }

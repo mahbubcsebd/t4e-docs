@@ -15,7 +15,7 @@ const iconMap = {
 export const BuildNewSystems = () => {
   return (
     <section className="py-12 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-[1150px] mx-auto flex flex-col items-center text-center bg-white w-full">
-      <div className="uppercase tracking-widest text-[11px] sm:text-[12px] font-bold text-[#627aa8] mb-4">
+      <div className="uppercase tracking-widest text-[11px] sm:text-[12px] font-bold text-[#025da9] mb-4">
         BUILD NEW SYSTEMS
       </div>
       <Heading level="h2" className="text-2xl sm:text-[2.6rem] leading-tight font-extrabold text-[#0f172a] mb-4 tracking-tight px-2">

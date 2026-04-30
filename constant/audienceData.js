@@ -99,7 +99,7 @@ export const audienceDetailsData = {
     id: 'integrators',
     overline: 'SYSTEMS INTEGRATORS / CONSULTANTS',
     title:
-      'Deliver projects faster, with less risk — and<br class=\'hidden md:block\' /> more margin per engagement.',
+      "Deliver projects faster, with less risk — and<br class='hidden md:block' /> more margin per engagement.",
     realityCards: [
       {
         id: 1,
@@ -145,7 +145,7 @@ export const audienceDetailsData = {
   },
   enterpriseIT: {
     id: 'enterpriseIT',
-    overline: 'ENTERPRISE LOB & IT TEAMS',
+    overline: 'ENTERPRISE & MID-SIZE BUSINESS',
     title:
       "Map your systems. Modernize safely.<br class='hidden md:block' /> Deploy AI with confidence.",
     realityCards: [
@@ -244,7 +244,7 @@ export const audienceDetailsData = {
     id: 'startups',
     overline: 'START-UPS & NEW VENTURES',
     title:
-      "Go from pitch deck, to production at start-up speed -<br class='hidden md:block' /> with a \"built-in\" technical co-founder.",
+      'Go from pitch deck, to production at start-up speed -<br class=\'hidden md:block\' /> with a "built-in" technical co-founder.',
     realityCards: [
       {
         id: 1,

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import Link from 'next/link';
 import React from "react";
+import Logo from '@/public/assets/images/think4ever-logo.png';
 
 export const AudienceDetail = ({ data }) => {
   if (!data) return null;
@@ -15,7 +16,7 @@ export const AudienceDetail = ({ data }) => {
       {/* Header Area */}
       <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-10 sm:mb-16">
         <div 
-          className="uppercase tracking-widest text-[11px] sm:text-[12px] font-bold text-[#627aa8] mb-4 leading-relaxed"
+          className="uppercase tracking-widest text-[11px] sm:text-[12px] font-bold text-[#025da9] mb-4 leading-relaxed"
           dangerouslySetInnerHTML={{ __html: data.overline }}
         />
         <Heading level="h2" className="text-[1.75rem] sm:text-[2.5rem] leading-[1.2] font-bold text-[#0f172a] tracking-tight text-balance" dangerouslySetInnerHTML={{ __html: data.title }} />
@@ -66,8 +67,10 @@ export const AudienceDetail = ({ data }) => {
           {/* Right Video CTA Thumbnail */}
           <div className="w-full lg:w-1/2 flex flex-col items-center">
             <Video
-              url="https://www.youtube.com/watch?v=CQpIODqNFek"
-              className="aspect-video w-full max-w-[500px] bg-gradient-to-br from-[#4161a0] to-[#253965] shadow-2xl rounded-2xl border-0 overflow-hidden"
+              url="https://www.youtube.com/watch?v=nW37QETUq3o"
+              thumbnail={Logo}
+              title={data.videoLabel || "Watch how it works"}
+              className="aspect-video w-full max-w-[500px] shadow-xl rounded-2xl border border-gray-200 overflow-hidden"
             />
             <div className="mt-8">
               <Button asChild className="bg-[#64748b] hover:bg-[#475569] text-white h-11 px-8 font-bold transition-all rounded-md shadow-md">
@@ -80,7 +83,7 @@ export const AudienceDetail = ({ data }) => {
 
       <div className="mt-12 sm:mt-20 mb-4 sm:mb-8 w-full sm:w-auto px-4 sm:px-0">
         <Button asChild variant="orange" className="w-full sm:w-auto h-[50px] sm:h-[52px] px-10 text-[16px] sm:text-[17px] font-semibold shadow-md hover:shadow-lg rounded-md transition-all">
-          <Link href={data.ctaHref || "/pricing"}>Get Early Access</Link>
+          <Link href={data.ctaHref || "/get-early-access"}>Get Early Access</Link>
         </Button>
       </div>
     </section>

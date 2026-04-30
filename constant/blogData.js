@@ -6,10 +6,6 @@ export const BLOG_POSTS = [
     description: 'The future of AI software development is not faster code generation, but stronger system architecture. Learn how Think4Ever’s design-first approach creates a locked blueprint before coding begins, helping teams reduce rework, prevent technical debt, and build scalable, production-ready systems with greater consistency than code-first tools.',
     content: `
       <div class="space-y-6 text-gray-600">
-        <p class="text-xl font-medium text-gray-900 italic border-l-4 border-blue-500 pl-4 py-2 bg-blue-50/50 rounded-r-lg">
-          Note: This white paper is currently undergoing final edits. The full updated version will be available shortly.
-        </p>
-        
         <p>The future of AI software development is not faster code generation, but stronger system architecture. Learn how Think4Ever’s design-first approach creates a locked blueprint before coding begins, helping teams reduce rework, prevent technical debt, and build scalable, production-ready systems with greater consistency than code-first tools.</p>
         
         <h2 class="text-2xl font-bold text-gray-900 mt-12">Architecture vs. Generation</h2>
@@ -41,7 +37,7 @@ export const BLOG_POSTS = [
     author: 'Sunil Kishen',
     readTime: '8 min read',
     date: 'Feb 26, 2026',
-    image: '/assets/images/blog/architecture.png',
+    image: '/new_site/assets/images/blog/architecture.png',
     category: 'White Paper',
   },
   {
@@ -58,7 +54,7 @@ export const BLOG_POSTS = [
     author: 'Lori Bieda',
     readTime: '5 min read',
     date: 'Feb 15, 2026',
-    image: '/assets/images/blog/scaling.png',
+    image: '/new_site/assets/images/blog/scaling.png',
     category: 'Engineering',
   },
   {
@@ -72,7 +68,7 @@ export const BLOG_POSTS = [
     author: 'Lori Bieda',
     readTime: '5 min read',
     date: 'Feb 10, 2026',
-    image: '/assets/images/blog/collaboration.png',
+    image: '/new_site/assets/images/blog/collaboration.png',
     category: 'Trends',
   },
 ];

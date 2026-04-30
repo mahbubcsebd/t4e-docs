@@ -19,66 +19,33 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import Logo from '@/public/assets/images/think4ever-logo.png';
-import {
-  BookOpen,
-  Briefcase,
-  Building,
-  Cloud,
-  Code,
-  Cpu,
-  FileText,
-  Layers,
-  Menu,
-  Zap,
-} from 'lucide-react';
+import { BookOpen, FileText, Menu } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 
-const PRODUCT_DATA = [
-  {
-    title: 'Multi-Agent SDLC',
-    desc: 'The first platform that designs and builds entire systems.',
-    href: '/#build-new',
-    icon: Zap,
-  },
-  {
-    title: 'AI Orchestration',
-    desc: 'Deploy complex ideas at the speed of thought.',
-    href: '/#modernize-existing',
-    icon: Cpu,
-  },
-  {
-    title: 'Full System View',
-    desc: 'Map and manage dependencies automatically.',
-    href: '/#integrations',
-    icon: Layers,
-  },
-];
-
 const RESOURCES_DATA = [
-  {
-    title: 'Documentation',
-    desc: 'Guides, API references, and everything you need to build.',
-    href: '/docs',
-    icon: BookOpen,
-  },
   {
     title: 'Blog',
     desc: 'Insights, updates, and deep dives into agentic development.',
     href: '/blog',
     icon: FileText,
   },
+  {
+    title: 'Documentation',
+    desc: 'Guides, API references, and everything you need to build.',
+    href: '/docs',
+    icon: BookOpen,
+  },
 ];
-
-
 
 const ListItem = React.forwardRef(
   ({ className, title, children, icon: Icon, href, ...props }, ref) => {
@@ -146,7 +113,7 @@ export const Header = () => {
       {/* Desktop Navigation */}
       <div className="hidden lg:flex items-center">
         <NavigationMenu>
-          <NavigationMenuList>
+          <NavigationMenuList className="gap-2">
             <NavigationMenuItem>
               <NavigationMenuLink
                 asChild
@@ -163,48 +130,19 @@ export const Header = () => {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger
+              <NavigationMenuLink
+                asChild
                 className={cn(
-                  'transition-colors cursor-pointer',
+                  navigationMenuTriggerStyle(),
                   isActive('/product')
-                    ? 'text-gray-900'
-                    : 'text-gray-500 hover:text-gray-900',
+                    ? 'bg-[#f0f4ff] text-[#3b82f6] hover:bg-[#e6eeff] hover:text-[#3b82f6]'
+                    : 'text-gray-500 hover:text-gray-900 bg-transparent',
+                  'font-semibold px-4 transition-colors',
                 )}
-                onClick={() => router.push('/product')}
               >
-                Product
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[450px] gap-2 p-4 outline-none">
-                  <li>
-                    <Link
-                      href="/product"
-                      className="block select-none rounded-lg p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground bg-gradient-to-br from-[#e25d24]/5 to-orange-50 border border-[#e25d24]/10 mb-2"
-                    >
-                      <div className="text-sm font-bold text-[#1f2937] mb-1">
-                        How It Works
-                      </div>
-                      <p className="text-xs text-gray-500 leading-relaxed font-medium">
-                        Seven connected steps from idea to production-ready
-                        system.
-                      </p>
-                    </Link>
-                  </li>
-                  {PRODUCT_DATA.map((item) => (
-                    <ListItem
-                      key={item.title}
-                      title={item.title}
-                      icon={item.icon}
-                      href={item.href}
-                    >
-                      {item.desc}
-                    </ListItem>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
+                <Link href="/product">Product</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
-
-
 
             <NavigationMenuItem>
               <NavigationMenuLink
@@ -273,7 +211,7 @@ export const Header = () => {
           variant="orange"
           className="hidden sm:flex font-semibold px-5 py-2 h-9 text-sm rounded-md transition-all whitespace-nowrap shadow-sm"
         >
-          <Link href="/pricing">Get Early Access</Link>
+          <Link href="/get-early-access">Get Early Access</Link>
         </Button>
 
         <Sheet>
@@ -306,6 +244,9 @@ export const Header = () => {
                   </Link>
                 </SheetClose>
               </SheetTitle>
+              <SheetDescription className="sr-only">
+                Think4Ever Mobile Navigation Menu
+              </SheetDescription>
             </SheetHeader>
 
             <div className="flex-1 overflow-y-auto px-6 py-4">
@@ -327,41 +268,20 @@ export const Header = () => {
 
                 {/* Product */}
                 <AccordionItem value="product" className="border-0">
-                  <AccordionTrigger className="py-3 hover:no-underline text-[18px] font-bold text-gray-900">
-                    Product
-                  </AccordionTrigger>
-                  <AccordionContent className="pt-2 pb-4">
-                    <div className="grid gap-4 pl-4 border-l border-gray-100 ml-1">
-                      <SheetClose asChild>
-                        <Link
-                          href="/product"
-                          className="block p-3 rounded-lg bg-gradient-to-br from-[#e25d24]/5 to-orange-50 border border-[#e25d24]/10 mb-2"
-                        >
-                          <span className="block text-[15px] font-bold text-[#e25d24]">
-                            How It Works
-                          </span>
-                          <span className="block text-[11px] text-gray-500 mt-0.5">
-                            Seven steps from idea to production.
-                          </span>
-                        </Link>
-                      </SheetClose>
-                      {PRODUCT_DATA.map((item) => (
-                        <SheetClose key={item.title} asChild>
-                          <Link href={item.href} className="group block">
-                            <span className="block text-[15px] font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
-                              {item.title}
-                            </span>
-                            <span className="block text-xs text-gray-500 mt-0.5">
-                              {item.desc}
-                            </span>
-                          </Link>
-                        </SheetClose>
-                      ))}
-                    </div>
-                  </AccordionContent>
+                  <SheetClose asChild>
+                    <Link
+                      href="/product"
+                      className={cn(
+                        'flex py-3 text-[18px] font-bold transition-colors',
+                        isActive('/product')
+                          ? 'text-[#3b82f6]'
+                          : 'text-gray-900',
+                      )}
+                    >
+                      Product
+                    </Link>
+                  </SheetClose>
                 </AccordionItem>
-
-
 
                 {/* Pricing */}
                 <AccordionItem value="pricing" className="border-0">
@@ -428,7 +348,7 @@ export const Header = () => {
                 variant="orange"
                 className="w-full font-bold py-6 rounded-lg text-lg shadow-xl shadow-orange-500/20"
               >
-                <Link href="/pricing">Get Early Access</Link>
+                <Link href="/get-early-access">Get Early Access</Link>
               </Button>
             </div>
           </SheetContent>
