@@ -21,14 +21,14 @@ const pricingPlans = [
     price: '25',
     unit: '/ seat / month',
     features: [
-      'BYOK supported',
-      'Includes 100 monthly orchestration credits',
-      'Additional credits from $0.50–$1.50 depending on workload',
+      'BYOK Supported',
+      'Includes 100 Orchestration Credits',
+      'Credit top-ups supported via increments of 500 Credits for $25.',
       'Monthly managed usage caps apply',
     ],
-    usageHeader: 'AI Usage & Billing:',
+    usageHeader: 'Note:',
     usageNote:
-      'Orchestration credits power AI tasks such as system generation, build workflows, and automation actions.',
+      'Orchestration Credits power Think4Ever platform tasks to generate all the SDLC artifacts including Code generation.',
     buttonText: 'Buy Now',
     buttonIcon: ShoppingCart,
   },
@@ -143,7 +143,7 @@ const PricingPlans = () => {
           {plan.usageNote && (
             <div className="mb-8 text-[13px] text-gray-500 leading-relaxed">
               <span className="font-bold text-gray-700">
-                AI Usage & Billing:
+                {plan.usageHeader}
               </span>{' '}
               {plan.usageNote}
             </div>
