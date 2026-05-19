@@ -36,12 +36,12 @@ const faqData = [
     items: [
       {
         question: "What pricing tiers are available?",
-        answer: "We offer three main tiers: Builders (Free/Individuals), Partners (Professional teams), and Enterprise (Custom solutions). Visit our pricing page for more details."
+        answer: "We offer three main tiers: Think New ($25/month), Think Big ($250/month), and Think Blue (Custom pricing). Visit our pricing page for more details."
       },
 
       {
         question: "Can I change my plan later?",
-        answer: "For those on the ThinkNew Plan (solo developers, freelancers, founders, and small builder teams shipping AI-powered products, you can upgrade your plan any time. Changes take effect at the start of the next billing cycle. For Those on the ThinkBig or ThinkBlue plans, individual contract terms govern plan and pricing adjustments."
+        answer: "For those on the Think New Plan (solo developers, freelancers, founders, and small builder teams shipping AI-powered products), you can upgrade your plan any time. Changes take effect at the start of the next billing cycle. For those on the Think Big or Think Blue plans, individual contract terms govern plan and pricing adjustments."
       }
     ]
   },
@@ -50,11 +50,11 @@ const faqData = [
     items: [
       {
         question: "How long does it take to get started?",
-        answer: "For the Builders tier, you can sign up and start using the platform within minutes. Partners and Enterprise customers typically complete onboarding within 1-2 weeks, including configuration, integrations, and team training."
+        answer: "For the Think New tier, you can sign up and start using the platform within minutes. Think Big and Think Blue customers typically complete onboarding within 1-2 weeks, including configuration, integrations, and team training."
       },
       {
         question: "Do you provide onboarding assistance?",
-        answer: "Yes. All plans include access to our documentation and getting-started guides. Partners tier includes a dedicated onboarding session. Enterprise customers receive a full onboarding program with a dedicated Customer Success Manager."
+        answer: "Yes. All plans include access to our documentation and getting-started guides. Think Big tier includes a dedicated onboarding session. Think Blue customers receive a full onboarding program with a dedicated Customer Success Manager."
       },
       {
         question: "Can I import data from my existing tools?",
@@ -62,7 +62,7 @@ const faqData = [
       },
       {
         question: "What training resources are available?",
-        answer: "We provide web-based documentation, tutorials, video walkthroughs. Live training sessions are available (for Partners & Enterprise tiers)."
+        answer: "We provide web-based documentation, tutorials, video walkthroughs. Live training sessions are available (for Think Big & Think Blue tiers)."
       },
       {
         question: "How do I invite my team members?",
@@ -75,7 +75,7 @@ const faqData = [
     items: [
       {
         question: "What support channels are available?",
-        answer: "Support varies by plan. Independents are self-serve with access to our online help portal. Partners and Enterprise customers have access to our sales and support team who can address your needs directly — reach out to your contact or submit a request through the portal."
+        answer: "Support varies by plan. Think New are self-serve with access to our online help portal. Think Big and Think Blue customers have access to our sales and support team who can address your needs directly — reach out to your contact or submit a request through the portal."
       },
       {
         question: "How do I submit a support ticket?",

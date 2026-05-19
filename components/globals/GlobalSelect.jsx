@@ -142,7 +142,7 @@ const GlobalSelect = forwardRef(
 
         {/* Helper Text or Error */}
         {(helperText || error) && (
-          <p className={cn('mt-1.5 text-[11px] font-medium', error ? 'text-red-500' : 'text-gray-500')}>
+          <p className={cn('mt-1.5 text-[13px]', error ? 'text-red-500' : 'text-gray-500')}>
             {error || helperText}
           </p>
         )}

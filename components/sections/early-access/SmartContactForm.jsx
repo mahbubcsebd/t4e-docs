@@ -10,19 +10,6 @@ import { Controller, useForm } from 'react-hook-form';
 import * as z from 'zod';
 
 const smartFormSchema = z.object({
-  firstName: z
-    .string()
-    .min(1, 'First name is required')
-    .max(32, 'Max 32 characters'),
-  lastName: z
-    .string()
-    .min(1, 'Last name is required')
-    .max(32, 'Max 32 characters'),
-  workEmail: z.string().email('Please enter a valid email address'),
-  companyName: z.string().min(1, 'Company name is required'),
-  website: z
-    .string()
-    .url('Please enter a valid URL (e.g., https://example.com)'),
   country: z.string().min(1, 'Country is required'),
   role: z.string().min(1, 'Role/Title is required'),
   lifecycle: z.string().min(1, 'Please select a lifecycle stage'),
@@ -31,10 +18,6 @@ const smartFormSchema = z.object({
     .min(1, 'Please select at least one primary need')
     .max(5, 'Select up to 5 needs'),
   timeline: z.string().min(1, 'Please select a timeline'),
-  notes: z.string().optional(),
-  agreed: z.boolean().refine((val) => val === true, {
-    message: 'Agreement required',
-  }),
 });
 
 const LIFECYCLE_STAGES = [
@@ -47,10 +30,10 @@ const LIFECYCLE_STAGES = [
 ];
 
 const PRIMARY_NEEDS = [
+  'Ammend and fix existing code',
   'Design the right architecture upfront',
   'Simplify SDLC stack with fewer tools',
   'Build AI agents or automation workflows',
-  'Accelerate development with AI-generated code',
   'Keep systems aligned as complexity grows',
   'See system dependencies and change impact in real time',
   'Reduce rework caused by fragmented delivery',
@@ -77,18 +60,11 @@ const SmartContactForm = ({ onSubmit, segment, segmentPath }) => {
   } = useForm({
     resolver: zodResolver(smartFormSchema),
     defaultValues: {
-      firstName: '',
-      lastName: '',
-      workEmail: '',
-      companyName: '',
-      website: '',
       country: '',
       role: '',
       lifecycle: '',
       primaryNeeds: [],
       timeline: '',
-      notes: '',
-      agreed: false,
     },
   });
 
@@ -122,66 +98,7 @@ const SmartContactForm = ({ onSubmit, segment, segmentPath }) => {
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <Card className="p-6 sm:p-8 space-y-6 shadow-sm border-gray-100 rounded-lg bg-white">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <GlobalInput
-              label="First Name"
-              placeholder="Enter your first name"
-              required
-              {...inputStyles}
-              {...register('firstName')}
-              error={errors.firstName?.message}
-            />
-            <GlobalInput
-              label="Last Name"
-              placeholder="Enter your last name"
-              required
-              {...inputStyles}
-              {...register('lastName')}
-              error={errors.lastName?.message}
-            />
-          </div>
-
-          <GlobalInput
-            label="Work Email"
-            type="email"
-            placeholder="you@company.com"
-            required
-            {...inputStyles}
-            {...register('workEmail')}
-            error={errors.workEmail?.message}
-          />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <GlobalInput
-              label="Company Name"
-              placeholder="Your company"
-              required
-              {...inputStyles}
-              {...register('companyName')}
-              error={errors.companyName?.message}
-            />
-            <GlobalInput
-              label="Segment"
-              isReadOnly
-              value={segment}
-              {...inputStyles}
-              inputClassName={cn(
-                inputStyles.inputClassName,
-                'bg-gray-50 cursor-not-allowed opacity-70',
-              )}
-            />
-          </div>
-
-          <GlobalInput
-            label="Company Website"
-            placeholder="https://example.com"
-            required
-            {...inputStyles}
-            {...register('website')}
-            error={errors.website?.message}
-          />
-
+        <Card className="p-6 sm:p-8 space-y-8 shadow-sm border-gray-100 rounded-lg bg-white">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <GlobalInput
               label="Country"
@@ -283,54 +200,15 @@ const SmartContactForm = ({ onSubmit, segment, segmentPath }) => {
               </p>
             )}
           </div>
-
-          <GlobalInput
-            label="Anything Important We Should Know?"
-            placeholder="Tell us about your specific challenges or goals..."
-            isTextarea
-            rows={4}
-            {...inputStyles}
-            inputClassName={cn(inputStyles.inputClassName, 'min-h-[120px]')}
-            {...register('notes')}
-          />
-
-          <div className="flex flex-col gap-2 pt-2">
-            <label className="flex items-center gap-3 cursor-pointer group">
-              <div className="relative flex items-center">
-                <input
-                  type="checkbox"
-                  className="peer h-4 w-4 cursor-pointer appearance-none rounded-[3px] border border-gray-300 transition-all checked:bg-[#5c67f2] checked:border-[#5c67f2]"
-                  {...register('agreed')}
-                />
-                <Check className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 peer-checked:opacity-100 transition-opacity" />
-              </div>
-              <span className="text-[13px] text-gray-500 font-medium select-none leading-none">
-                I agree to the{' '}
-                <Link href="/privacy-policy" className="text-[#5c67f2] hover:underline">
-                  Terms & Privacy Policy
-                </Link>{' '}
-                and to be contacted.
-              </span>
-            </label>
-            {errors.agreed && (
-              <p className="text-[11px] text-red-500 ml-7 font-black">
-                Agreement required
-              </p>
-            )}
-          </div>
         </Card>
 
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full h-12 text-[15px] font-bold bg-[#5c67f2] hover:bg-[#4a54d1] shadow-lg shadow-blue-500/10 active:scale-[0.98] transition-all rounded-lg flex items-center justify-center gap-2"
+          className="w-full h-12 text-[15px] font-bold bg-[#5c67f2] hover:bg-[#4a54d1] shadow-lg shadow-blue-500/10 active:scale-[0.98] transition-all rounded-lg flex items-center justify-center gap-2 uppercase tracking-wide"
         >
           <Rocket size={16} />
-          {isSubmitting 
-            ? 'Sending Application...' 
-            : segmentPath === 'self-serve' 
-              ? 'Continue to Pricing' 
-              : 'Request Early Access'}
+          {isSubmitting ? 'Processing...' : 'SET UP ACCOUNT'}
         </Button>
       </form>
     </div>

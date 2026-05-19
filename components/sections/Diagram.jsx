@@ -14,7 +14,7 @@ import {
 const steps = [
   {
     id: 1,
-    title: 'Configure the foundation',
+    title: 'Configure the Foundation & DESIGN',
     desc: 'Stack, APIs, environments. AI-guided or your own.',
     tag: 'Setup',
     icon: Settings,
@@ -198,7 +198,7 @@ export const Diagram = ({ activeIndex = 0, onStepClick = () => {} }) => {
         {/* Phase: Foundation (Steps 1-4) */}
         <div className="relative mb-24">
           <div className="inline-block bg-blue-50/50 text-[#1b449b] px-3 py-1 rounded text-[10px] font-bold uppercase tracking-[0.2em] mb-8 border border-blue-100/50">
-            Foundation
+            Foundation & DESIGN
           </div>
 
           <div className="grid grid-cols-4 gap-6 relative">
@@ -224,7 +224,7 @@ export const Diagram = ({ activeIndex = 0, onStepClick = () => {} }) => {
         <div className="relative mb-24">
           <div className="absolute top-[-30px] left-0">
             <div className="inline-block bg-pink-50/50 text-pink-600 px-3 py-1 rounded text-[10px] font-bold uppercase tracking-[0.2em] border border-pink-100/50 xl:ml-[105px]">
-              Design & Build
+              BUILD & DEPLOY
             </div>
           </div>
 

@@ -1,12 +1,11 @@
-"use client";
-import { Heading } from "@/components/globals/Heading";
-import { Paragraph } from "@/components/globals/Paragraph";
-import { Video } from "@/components/globals/Video";
-import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
-import Link from 'next/link';
-import React from "react";
+'use client';
+import { Heading } from '@/components/globals/Heading';
+import { Paragraph } from '@/components/globals/Paragraph';
+import { Video } from '@/components/globals/Video';
+import { Button } from '@/components/ui/button';
 import Logo from '@/public/assets/images/think4ever-logo.png';
+import { Check } from 'lucide-react';
+import Link from 'next/link';
 
 export const AudienceDetail = ({ data }) => {
   if (!data) return null;
@@ -15,11 +14,15 @@ export const AudienceDetail = ({ data }) => {
     <section className="py-12 sm:py-24 px-4 sm:px-6 lg:px-8 w-full bg-[#fbfcfd] flex flex-col items-center">
       {/* Header Area */}
       <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-10 sm:mb-16">
-        <div 
+        <div
           className="uppercase tracking-widest text-[11px] sm:text-[12px] font-bold text-[#025da9] mb-4 leading-relaxed"
           dangerouslySetInnerHTML={{ __html: data.overline }}
         />
-        <Heading level="h2" className="text-[1.75rem] sm:text-[2.5rem] leading-[1.2] font-bold text-[#0f172a] tracking-tight text-balance" dangerouslySetInnerHTML={{ __html: data.title }} />
+        <Heading
+          level="h2"
+          className="text-[1.75rem] sm:text-[2.5rem] leading-[1.2] font-bold text-[#0f172a] tracking-tight text-balance"
+          dangerouslySetInnerHTML={{ __html: data.title }}
+        />
       </div>
 
       {/* Today's Reality Cards */}
@@ -29,14 +32,22 @@ export const AudienceDetail = ({ data }) => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8">
           {data.realityCards.map((card) => (
-            <div key={card.id} className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 flex flex-col shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300">
-              <h3 className="text-[16px] sm:text-[17px] font-bold text-[#0f172a] mb-4 leading-tight">{card.title}</h3>
-              <Paragraph size="sm" className="text-gray-500 mb-8 leading-[1.6] text-[14px]">
+            <div
+              key={card.id}
+              className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 flex flex-col shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 hover:scale-[1.02] transition-all duration-500 cursor-default"
+            >
+              <h3 className="text-[16px] sm:text-[17px] font-bold text-[#0f172a] mb-4 leading-tight">
+                {card.title}
+              </h3>
+              <Paragraph
+                size="sm"
+                className="text-gray-500 mb-8 leading-[1.6] text-[14px]"
+              >
                 {card.description}
               </Paragraph>
-              <div 
-                className="mt-auto pt-6 border-t border-gray-100 text-[12px] sm:text-[13px] text-gray-500 leading-relaxed" 
-                dangerouslySetInnerHTML={{ __html: card.statHtml }} 
+              <div
+                className="mt-auto pt-6 border-t border-gray-100 text-[12px] sm:text-[13px] text-gray-500 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: card.statHtml }}
               />
             </div>
           ))}
@@ -44,19 +55,26 @@ export const AudienceDetail = ({ data }) => {
       </div>
 
       <div className="w-full max-w-6xl mx-auto border-t border-gray-200 pt-12 sm:pt-16">
-        <h3 className="text-[18px] sm:text-[20px] font-bold text-[#0f172a] mb-1.5 sm:mb-2 text-center sm:text-left">With Think4Ever, you get:</h3>
-        
+        <h3 className="text-[18px] sm:text-[20px] font-bold text-[#0f172a] mb-1.5 sm:mb-2 text-center sm:text-left">
+          With Think4Ever, you get:
+        </h3>
+
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-center">
           {/* Left Checkmarks */}
           <div className="w-full lg:w-1/2 space-y-6 sm:space-y-8 pr-0 lg:pr-4">
             {data.checklist.map((item, i) => (
-              <div key={i} className="flex gap-4">
-                <div className="mt-1 flex-shrink-0 self-start text-[#10b981] bg-[#eafaf1] p-1.5 rounded-lg border border-[#d1f5e1]">
+              <div key={i} className="flex gap-4 group cursor-default">
+                <div className="mt-1 flex-shrink-0 self-start text-[#10b981] bg-[#eafaf1] p-1.5 rounded-lg border border-[#d1f5e1] transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-sm">
                   <Check className="h-4 w-4 sm:h-5 sm:w-5 stroke-[3]" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-bold text-[#1f2937] mb-1 text-[15px] sm:text-[16px] leading-snug">{item.title}</h4>
-                  <Paragraph size="sm" className="text-gray-500 text-[13.5px] leading-[1.6] max-w-md">
+                  <h4 className="font-bold text-[#1f2937] mb-1 text-[15px] sm:text-[16px] leading-snug">
+                    {item.title}
+                  </h4>
+                  <Paragraph
+                    size="sm"
+                    className="text-gray-500 text-[13.5px] leading-[1.6] max-w-md"
+                  >
                     {item.desc}
                   </Paragraph>
                 </div>
@@ -67,14 +85,17 @@ export const AudienceDetail = ({ data }) => {
           {/* Right Video CTA Thumbnail */}
           <div className="w-full lg:w-1/2 flex flex-col items-center">
             <Video
-              url="https://www.youtube.com/watch?v=nW37QETUq3o"
+              url="https://www.youtube.com/watch?v=LMo-o7187UY"
               thumbnail={Logo}
-              title={data.videoLabel || "Watch how it works"}
-              className="aspect-video w-full max-w-[500px] shadow-xl rounded-2xl border border-gray-200 overflow-hidden"
+              title={data.videoLabel || 'Watch how it works'}
+              className="aspect-video w-full max-w-[500px] shadow-xl rounded-2xl border border-gray-200 overflow-hidden ring-1 ring-gray-950/5"
             />
             <div className="mt-8">
-              <Button asChild className="bg-[#64748b] hover:bg-[#475569] text-white h-11 px-8 font-bold transition-all rounded-md shadow-md">
-                <Link href="/product">Explore Product</Link>
+              <Button
+                asChild
+                className="bg-[#64748b] hover:bg-[#475569] text-white h-11 px-8 font-bold transition-all rounded-md shadow-md"
+              >
+                <Link href="/product">See How it Works</Link>
               </Button>
             </div>
           </div>
@@ -82,8 +103,12 @@ export const AudienceDetail = ({ data }) => {
       </div>
 
       <div className="mt-12 sm:mt-20 mb-4 sm:mb-8 w-full sm:w-auto px-4 sm:px-0">
-        <Button asChild variant="orange" className="w-full sm:w-auto h-[50px] sm:h-[52px] px-10 text-[16px] sm:text-[17px] font-semibold shadow-md hover:shadow-lg rounded-md transition-all">
-          <Link href={data.ctaHref || "/get-early-access"}>Get Early Access</Link>
+        <Button
+          asChild
+          variant="orange"
+          className="w-full sm:w-auto h-[50px] sm:h-[52px] px-10 text-[16px] sm:text-[17px] font-semibold shadow-md hover:shadow-lg rounded-md transition-all"
+        >
+          <Link href="https://portal.think4ever.com">Get Early Access</Link>
         </Button>
       </div>
     </section>

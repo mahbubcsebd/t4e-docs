@@ -6,6 +6,7 @@ import {
   Code,
   Heart,
   Mail,
+  Rocket,
   ShoppingCart,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -17,20 +18,19 @@ const pricingPlans = [
     iconBg: 'bg-[#eef2ff]',
     iconColor: 'text-[#6366f1]',
     description:
-      'For solo developers, freelancers, founders, and small builder teams shipping AI-powered products.',
+      'For solo developers, freelancers, founders, and small builders shipping AI-powered products.',
     price: '25',
-    unit: '/ seat / month',
+    unit: '/ month per builder',
     features: [
-      'BYOK Supported',
-      'Includes 100 Orchestration Credits',
-      'Credit top-ups supported via increments of 500 Credits for $25.',
-      'Monthly managed usage caps apply',
+      '500 credits included (which equals $25)',
+      'Up to 3 projects',
+      'Structured system design + code generation',
+      'BYOK (bring your own model)',
+      'Add credits as needed 5 cents / credit',
     ],
-    usageHeader: 'Note:',
-    usageNote:
-      'Orchestration Credits power Think4Ever platform tasks to generate all the SDLC artifacts including Code generation.',
-    buttonText: 'Buy Now',
-    buttonIcon: ShoppingCart,
+    buttonText: 'Get Early Access',
+    buttonIcon: Rocket,
+    href: 'https://portal.think4ever.com',
   },
   {
     title: 'Think Big',
@@ -38,20 +38,23 @@ const pricingPlans = [
     iconBg: 'bg-[#f0fdf4]',
     iconColor: 'text-[#22c55e]',
     description:
-      'For system integrators, consulting firms, and technology partners.',
-    price: 'Custom Pricing',
-    prefix: null,
-    unit: '',
+      'For developer teams, multi developer environments',
+    price: '250',
+    unit: '/ month',
     features: [
-      'BYOK supported',
-      'Custom team credit packages',
-      'Shared usage pools available',
-      'Project-based pricing',
-      'Admin controls and monthly caps',
+      'Up to 5 users included',
+      'Up to 5 projects',
+      'Structured system design + code generation',
+      'BYOK (bring your own model)',
+      'Add credits as needed 5 cents / credit',
+      'Shared project environments',
+      'Usage pooling across team',
+      'Admin controls + caps',
+      'Priority system orchestration',
     ],
-    usageHeader: 'AI Usage & Billing:',
-    buttonText: 'Contact Sales',
-    buttonIcon: Mail,
+    buttonText: 'Get Early Access',
+    buttonIcon: Rocket,
+    href: 'https://portal.think4ever.com',
   },
   {
     title: 'Think Blue',
@@ -59,19 +62,18 @@ const pricingPlans = [
     iconBg: 'bg-[#fffbeb]',
     iconColor: 'text-[#f59e0b]',
     description:
-      'For large organizations requiring advanced governance, security, scale, and tailored deployment models.',
-    price: 'Custom Pricing',
+      'For organizations with more sophisticated environments, larger scale and tailored deployment models',
+    price: 'Custom pricing',
     unit: '',
     features: [
-      'BYOK supported',
+      'Scales to enterprise teams',
       'Private deployment options',
-      'Annual volume licensing',
-      'Custom usage pools and caps',
-      'Enterprise billing controls',
+      'Custom usage pools + cost controls',
+      'Dedicated support + onboarding',
     ],
-    usageHeader: 'AI Usage & Billing:',
     buttonText: 'Contact Sales',
     buttonIcon: Mail,
+    href: '/contact-us',
   },
 ];
 
@@ -111,7 +113,7 @@ const PricingPlans = () => {
             )}
             <div className="flex items-baseline gap-1">
               <span className="text-4xl font-bold text-[#111827]">
-                {plan.price !== 'Custom Pricing' ? '$' : ''}
+                {isNaN(plan.price) ? '' : '$'}
                 {plan.price}
               </span>
               <span className="text-gray-400 text-sm font-medium">
@@ -151,15 +153,13 @@ const PricingPlans = () => {
 
           <Button
             asChild
-            className="w-full h-12 bg-[#5c67f2] hover:bg-[#4a54d1] text-white rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-all"
+            variant={plan.title === 'Think Blue' ? 'default' : 'orange'}
+            className={cn(
+              "w-full h-12 rounded-lg font-bold text-[14px] flex items-center justify-center gap-2 transition-all",
+              plan.title === 'Think Blue' ? "bg-[#5c67f2] hover:bg-[#4a54d1]" : ""
+            )}
           >
-            <Link
-              href={
-                plan.title === 'Think New'
-                  ? '/checkout/indie-devs'
-                  : '/get-early-access'
-              }
-            >
+            <Link href={plan.href}>
               <plan.buttonIcon size={16} />
               {plan.buttonText}
             </Link>

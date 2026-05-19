@@ -7,9 +7,11 @@ import { EnterpriseITTeams } from "@/components/sections/EnterpriseITTeams";
 import { constructMetadata } from "@/lib/metadata";
 
 export const metadata = constructMetadata({
-  title: "think4ever | Turn Ideas into Integrated Systems",
-  description: "The first multi-agent SDLC platform that designs, builds and deploys production-ready systems.",
+  title: "think4ever | Turn Ideas and Code into Systems",
+  description: "The first AI-powered multi-agent SDLC platform that designs, builds, and deploys production-ready systems with total coherence and flexibility.",
 });
+
+
 
 const HomePage = () => {
   return (

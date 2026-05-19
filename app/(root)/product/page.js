@@ -1,18 +1,18 @@
 'use client';
 import { Diagram } from '@/components/sections/Diagram';
 import {
+  ArrowRight,
   Boxes,
   Database,
   Eye,
   GitBranch,
   MessageSquare,
+  Rocket,
   Settings,
   Shield,
-  ArrowRight,
-  Rocket,
 } from 'lucide-react';
-import { useState } from 'react';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const steps = [
   {
@@ -23,7 +23,7 @@ const steps = [
     badgeColor: 'bg-blue-50 text-blue-600',
     iconColor: 'text-blue-500',
     icon: Settings,
-    title: 'Configure the Project Foundation',
+    title: 'Configure the Project Foundation & DESIGN',
     description:
       'Start with a central hub where teams configure project settings, manage API keys, and define the technical foundation. Use your existing stack, choose your preferred architecture, or let AI guide recommendations based on your goals.',
     cardTitle: 'WHAT YOU CONFIGURE',
@@ -34,7 +34,7 @@ const steps = [
       'Architecture and modernization goals',
     ],
     tag: 'Setup',
-    screenshot: '/new_site/assets/images/product/step-1.png',
+    screenshot: '/assets/images/product/step-1.png',
   },
   {
     id: 2,
@@ -55,7 +55,7 @@ const steps = [
       'AI-assisted requirement analysis and strengthening',
     ],
     tag: 'AI-assisted',
-    screenshot: '/new_site/assets/images/product/step-2.png',
+    screenshot: '/assets/images/product/step-2.png',
   },
   {
     id: 3,
@@ -76,7 +76,7 @@ const steps = [
       'Database structures and screen flows',
     ],
     tag: 'Visual map',
-    screenshot: '/new_site/assets/images/product/step-3.png',
+    screenshot: '/assets/images/product/step-3.png',
   },
   {
     id: 4,
@@ -97,7 +97,7 @@ const steps = [
       'Visual warnings and impact markers',
     ],
     tag: 'Real-time',
-    screenshot: '/new_site/assets/images/product/step-4.png',
+    screenshot: '/assets/images/product/step-4.png',
   },
   {
     id: 5,
@@ -118,7 +118,7 @@ const steps = [
       'Sequence, impact, and scale context',
     ],
     tag: 'Modernization',
-    screenshot: '/new_site/assets/images/product/step-5.png',
+    screenshot: '/assets/images/product/step-5.png',
   },
   {
     id: 6,
@@ -139,7 +139,7 @@ const steps = [
       'Centralized data governance in one view',
     ],
     tag: 'Visual ERD',
-    screenshot: '/new_site/assets/images/product/step-6.png',
+    screenshot: '/assets/images/product/step-6.png',
   },
   {
     id: 7,
@@ -150,8 +150,7 @@ const steps = [
     iconColor: 'text-green-500',
     icon: Shield,
     title: 'Set Roles and rules',
-    description:
-      'Define permissions, business rules and governance.',
+    description: 'Define permissions, business rules and governance.',
     cardTitle: 'GOVERNANCE',
     cardItems: [
       'Permissions matrix — user types and access controls',
@@ -159,7 +158,7 @@ const steps = [
       'Visual rules dashboard with warnings and filters',
     ],
     tag: 'Permissions · Rules',
-    screenshot: '/new_site/assets/images/product/step-7.png',
+    screenshot: '/assets/images/product/step-7.png',
   },
   {
     id: 8,
@@ -180,7 +179,7 @@ const steps = [
       'Continuous delivery pipeline',
     ],
     tag: 'CI/CD · Docs',
-    screenshot: '/new_site/assets/images/product/step-7.png',
+    screenshot: '/assets/images/product/step-8.png',
   },
 ];
 
@@ -195,10 +194,10 @@ const ProductPage = () => {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
+
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   };
@@ -215,7 +214,7 @@ const ProductPage = () => {
           <span className="text-[#025da9]">.</span>
         </h1>
         <p className="text-gray-500 text-[14px] sm:text-lg max-w-2xl mx-auto leading-relaxed px-2">
-          Seven connected steps. One continuous platform. Human-directed at
+          Eight connected steps. One continuous platform. Human-directed at
           every stage.
         </p>
       </section>
@@ -226,7 +225,10 @@ const ProductPage = () => {
       </section>
 
       {/* Interactive Step Detail */}
-      <section id="step-detail-section" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 lg:pb-16 scroll-mt-20">
+      <section
+        id="step-detail-section"
+        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 lg:pb-16 scroll-mt-20"
+      >
         <div className="bg-white rounded-2xl shadow-[0_4px_24px_-2px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.04)] border border-gray-200 overflow-hidden">
           <div className="flex flex-col lg:flex-row min-h-[500px]">
             {/* Left Sidebar / Top Bar for Mobile */}
@@ -291,8 +293,8 @@ const ProductPage = () => {
                 {/* Visual Preview / Screenshot */}
                 {current.screenshot && (
                   <div className="mb-10 rounded-2xl overflow-hidden border border-gray-200 shadow-xl shadow-blue-500/5 group">
-                    <Image 
-                      src={current.screenshot} 
+                    <Image
+                      src={current.screenshot}
                       alt={current.title}
                       width={800}
                       height={450}
@@ -324,14 +326,17 @@ const ProductPage = () => {
                   <span className="text-[12px] font-semibold text-[#e25d24]">
                     {current.tag}
                   </span>
-                  
+
                   {(activeStep ?? 0) < steps.length - 1 && (
                     <button
                       onClick={() => handleStepChange((activeStep ?? 0) + 1)}
                       className="group flex items-center gap-2 text-[14px] font-bold text-[#1f2937] hover:text-[#e25d24] transition-all"
                     >
                       Next: {steps[(activeStep ?? 0) + 1].label}
-                      <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                      <ArrowRight
+                        size={18}
+                        className="transition-transform group-hover:translate-x-1"
+                      />
                     </button>
                   )}
                 </div>

@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -14,6 +14,7 @@ import {
   Lock, 
   ShieldCheck 
 } from "lucide-react";
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from "@/components/ui/button";
 import GlobalInput from '@/components/globals/GlobalInput';
 
@@ -31,7 +32,42 @@ const checkoutSchema = z.object({
   }),
 });
 
-const CheckoutPage = () => {
+const CheckoutPageContent = () => {
+  const searchParams = useSearchParams();
+  const planType = searchParams.get('plan') === 'big' ? 'big' : 'new';
+  
+  const planDetails = {
+    new: {
+      name: 'Think New',
+      price: 25,
+      unit: '/ month per builder',
+      features: [
+        'Up to 3 projects',
+        'Structured system design + code generation',
+        'BYOK (bring your own model)',
+        'Add credits as needed 5 cents / credit'
+      ]
+    },
+    big: {
+      name: 'Think Big',
+      price: 250,
+      unit: '/ user / month per user',
+      features: [
+        'Up to 5 users included',
+        'Up to 5 projects',
+        'Structured system design + code generation',
+        'BYOK (bring your own model)',
+        'Add credits as needed 5 cents / credit',
+        'Shared project environments',
+        'Usage pooling across team',
+        'Admin controls + caps',
+        'Priority system orchestration'
+      ]
+    }
+  };
+
+  const currentPlan = planDetails[planType];
+
   const {
     register,
     handleSubmit,
@@ -274,10 +310,10 @@ const CheckoutPage = () => {
               </div>
 
               <div className="border-b border-gray-50 pb-6 mb-6">
-                <h4 className="text-[14px] font-bold text-gray-900 mb-1">Independent Developers</h4>
+                <h4 className="text-[14px] font-bold text-gray-900 mb-1">{currentPlan.name}</h4>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-2xl font-bold text-[#1f2937]">$25</span>
-                  <span className="text-gray-400 font-bold text-[11px]">/ seat / mo</span>
+                  <span className="text-2xl font-bold text-[#1f2937]">${currentPlan.price}</span>
+                  <span className="text-gray-400 font-bold text-[11px]">{currentPlan.unit}</span>
                 </div>
               </div>
 
@@ -285,11 +321,7 @@ const CheckoutPage = () => {
                 <div>
                   <h5 className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.1em] mb-4">WHAT'S INCLUDED</h5>
                   <ul className="space-y-3">
-                    {[
-                      '100 orchestration credits',
-                      'Full platform access',
-                      'Pay-as-you-go overages'
-                    ].map((item, i) => (
+                    {currentPlan.features.map((item, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <Check className="h-3.5 w-3.5 text-emerald-500 mt-0.5" strokeWidth={3} />
                         <span className="text-[11px] text-gray-500 font-bold">{item}</span>
@@ -300,14 +332,14 @@ const CheckoutPage = () => {
 
                 <div className="bg-gray-50 border border-dashed border-gray-200 rounded-md p-4">
                   <p className="text-[10px] text-gray-400 leading-relaxed font-bold">
-                    <span className="text-gray-600">Note:</span> Overage billed at $0.15/credit.
+                    <span className="text-gray-600">Note:</span> Overage billed at $0.05/credit.
                   </p>
                 </div>
 
                 <div className="space-y-2 pt-4 border-t border-gray-50">
                   <div className="flex justify-between text-[12px] font-bold">
                     <span className="text-gray-400">Subtotal</span>
-                    <span className="text-gray-900">$25.00</span>
+                    <span className="text-gray-900">${currentPlan.price.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-[12px] font-bold">
                     <span className="text-gray-400">Tax</span>
@@ -315,7 +347,7 @@ const CheckoutPage = () => {
                   </div>
                   <div className="flex justify-between items-baseline pt-4 border-t border-gray-100">
                     <span className="text-[15px] font-bold text-gray-900 tracking-tight">Total Due</span>
-                    <span className="text-[18px] font-bold text-[#5c67f2]">$25.00</span>
+                    <span className="text-[18px] font-bold text-[#5c67f2]">${currentPlan.price.toFixed(2)}</span>
                   </div>
                 </div>
               </div>
@@ -360,6 +392,20 @@ const CheckoutPage = () => {
         </form>
       </div>
     </main>
+  );
+};
+
+const CheckoutPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-[#f8fafc] flex items-center justify-center">
+        <div className="animate-pulse text-gray-400 font-bold tracking-widest text-xs uppercase">
+          Loading Checkout...
+        </div>
+      </div>
+    }>
+      <CheckoutPageContent />
+    </Suspense>
   );
 };
 

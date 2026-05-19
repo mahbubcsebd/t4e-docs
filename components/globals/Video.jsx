@@ -18,7 +18,7 @@ export const Video = ({ url, className, thumbnail, title, ...props }) => {
   };
 
   return (
-    <div className={cn("relative rounded-xl overflow-hidden shadow-xl border border-blue-900/10 bg-black group", className)}>
+    <div className={cn("relative rounded-xl overflow-hidden shadow-xl border border-blue-900/10 bg-black group transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl", className)}>
       {!isPlaying && thumbnail && (
         <div 
           className="absolute inset-0 z-10 flex flex-col items-center justify-center cursor-pointer bg-gradient-to-br from-[#4161a0] to-[#253965]"

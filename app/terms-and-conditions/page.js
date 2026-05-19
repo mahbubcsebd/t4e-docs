@@ -5,7 +5,7 @@ import { constructMetadata } from "@/lib/metadata";
 export const metadata = constructMetadata({
   title: 'Terms and Conditions | Think4Ever',
   description: 'Read the Terms and Conditions for using Think4Ever services and website.',
-  canonicalUrl: "https://www.think4ever.com/new_site/terms-and-conditions/",
+  canonicalUrl: "https://www.think4ever.com/terms-and-conditions/",
 });
 
 const TermsAndConditions = () => {

@@ -5,7 +5,7 @@ import { constructMetadata } from "@/lib/metadata";
 export const metadata = constructMetadata({
   title: "Pricing - Transparent Plans for Teams | Think4Ever",
   description: "Simple, transparent pricing for teams of all sizes. Choice of monthly or annual billing.",
-  canonicalUrl: "https://www.think4ever.com/new_site/pricing/",
+  canonicalUrl: "https://www.think4ever.com/pricing/",
 });
 
 const PricingPage = () => {

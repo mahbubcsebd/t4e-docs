@@ -7,11 +7,12 @@ import Logo from '@/public/assets/images/think4ever-logo.png';
 import {
   Briefcase,
   Building,
+  CheckCircle,
   Cloud,
   Code,
   GitBranch,
   Layout,
-  RefreshCw,
+  MessageSquare,
   ShieldCheck,
   Zap,
 } from 'lucide-react';
@@ -26,17 +27,18 @@ export const Hero = () => {
           level="h1"
           className="text-[1.75rem] sm:text-[2.75rem] md:text-[3rem] lg:text-[3.75rem] leading-[1.1] sm:leading-[1.05] font-bold text-[#1f2937] border-0 mb-6 sm:mb-8 tracking-tight px-1 max-w-[90vw] sm:max-w-none"
         >
-          Turn Ideas into Integrated Systems. Instantly
+          Turn Ideas and Code into Systems you can See, Change and Deploy.
+          Instantly
           <span className="text-[#e25d24]">.</span>
         </Heading>
 
         <Paragraph
           size="lg"
-          className="text-gray-500 mb-8 sm:mb-12 max-w-3xl mx-auto text-[14px] sm:text-lg lg:text-2xl px-2 sm:px-4 leading-relaxed"
+          className="text-gray-500 mb-8 sm:mb-12 max-w-4xl mx-auto text-[14px] sm:text-lg lg:text-2xl px-2 sm:px-4 leading-relaxed"
         >
-          The first multi-agent SDLC platform that designs, builds
-          <br className="hidden sm:block" /> and deploys production-ready
-          systems.
+          The first AI-powered multi-agent SDLC platform that designs, builds,
+          and deploys production-ready systems with total coherence and
+          flexibility.
         </Paragraph>
 
         <Button
@@ -44,131 +46,113 @@ export const Hero = () => {
           variant="orange"
           className="text-sm sm:text-base font-semibold px-6 sm:px-8 h-11 sm:h-12 transition-all rounded-md w-full sm:w-auto shadow-lg shadow-orange-500/20 w-auto"
         >
-          <Link href="/get-early-access">Get Early Access</Link>
+          <Link href="https://portal.think4ever.com">Get Early Access</Link>
         </Button>
       </section>
 
-      {/* Two Column Section: Checklist and Video */}
-      <section className="px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto pb-16 sm:pb-24 pt-4 sm:pt-8 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-150">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-24 items-center">
-          {/* Left Column: Checklist */}
-          <div className="w-full lg:w-1/2 space-y-6 sm:space-y-8 pl-0 lg:pl-8 order-2 lg:order-1">
-            {/* Item 1: Design Before Code */}
-            <div className="flex gap-4">
-              <div className="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 self-start flex items-center justify-center rounded-lg bg-[#eafaf1] border border-[#d1f5e1] text-[#10b981]">
-                <Layout className="h-5 w-5 sm:h-6 sm:w-6 stroke-[3]" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-gray-900 mb-1 text-[15px] sm:text-base lg:text-lg leading-tight">
-                  1. Design Before Code
-                </h3>
-                <Paragraph
-                  size="sm"
-                  className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
-                >
-                  Start with system architecture, requirements, and workflows
-                  before a single line is generated.
-                </Paragraph>
-              </div>
-            </div>
+      {/* Video Section moved up - Just below CTA */}
+      <div className="flex flex-col items-center mb-8 sm:mb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100">
+        <div className="w-full max-w-3xl">
+          <Video
+            url="https://www.youtube.com/watch?v=nW37QETUq3o"
+            thumbnail={Logo}
+            title="Watch how it works"
+            className="aspect-video w-full shadow-2xl rounded-2xl border border-gray-200"
+          />
+        </div>
+      </div>
 
-            {/* Item 2: Orchestrate the full SDLC Stack */}
-            <div className="flex gap-4">
-              <div className="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 self-start flex items-center justify-center rounded-lg bg-[#fff0ea] border border-[#fde2d7] text-[#e25d24]">
-                <RefreshCw className="h-5 w-5 sm:h-6 sm:w-6 stroke-[3]" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-gray-900 mb-1 text-[15px] sm:text-base lg:text-lg leading-tight">
-                  2. Orchestrate the full SDLC Stack
-                </h3>
-                <Paragraph
-                  size="sm"
-                  className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
+      {/* Six Capabilities Section - Now below Video */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pb-16 sm:pb-24 pt-8 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-x-16 lg:gap-y-10 mt-8">
+          {[
+            {
+              id: 1,
+              title: 'See your system',
+              desc: 'Map your codebase into one connected view — code, APIs, data, and workflows all in one place.',
+              icon: Layout,
+              bg: 'bg-[#eafaf1]',
+              border: 'border-[#d1f5e1]',
+              text: 'text-[#10b981]',
+            },
+            {
+              id: 2,
+              title: 'Navigate in conversation',
+              desc: 'Ask questions by voice or text and instantly explore how your system works, what connects where, and why.',
+              icon: MessageSquare,
+              bg: 'bg-[#fff0ea]',
+              border: 'border-[#fde2d7]',
+              text: 'text-[#e25d24]',
+            },
+            {
+              id: 3,
+              title: 'Change with full impact visibility',
+              desc: 'Modify anything and instantly see how it affects everything else — before you deploy, with a full audit trail.',
+              icon: GitBranch,
+              bg: 'bg-[#eaf0ff]',
+              border: 'border-[#dbeafe]',
+              text: 'text-[#3b82f6]',
+            },
+            {
+              id: 4,
+              title: 'Build from requirements to production',
+              desc: 'Define requirements with an AI sidekick, then automatically generate a complete, production-ready system.',
+              icon: Zap,
+              bg: 'bg-[#f5f3ff]',
+              border: 'border-[#ddd6fe]',
+              text: 'text-[#8b5cf6]',
+            },
+            {
+              id: 5,
+              title: 'Automated QA & security testing',
+              desc: 'Continuously validate your system with automated QA, internal and external security testing, and end-to-end workflow checks.',
+              icon: ShieldCheck,
+              bg: 'bg-[#eafaf1]',
+              border: 'border-[#d1f5e1]',
+              text: 'text-[#10b981]',
+            },
+            {
+              id: 6,
+              title: 'Controlled delivery & traceability',
+              desc: 'Review, approve, and guide every change — with full traceability so every decision is documented and accountable.',
+              icon: CheckCircle,
+              bg: 'bg-[#eef2ff]',
+              border: 'border-[#e0e7ff]',
+              text: 'text-[#6366f1]',
+            },
+          ].map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.id} className="flex gap-5 group">
+                <div
+                  className={cn(
+                    'h-12 w-12 sm:h-14 sm:w-14 shrink-0 flex items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-sm',
+                    item.bg,
+                    item.border,
+                    item.text,
+                  )}
                 >
-                  Specialized AI agents design, build and validate systems -
-                  end-to-end - not just code.
-                </Paragraph>
+                  <Icon className="h-6 w-6 sm:h-7 sm:w-7 stroke-[2.5]" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-bold text-gray-900 mb-2 text-[16px] sm:text-lg lg:text-[19px] leading-tight">
+                    {item.title}
+                  </h3>
+                  <Paragraph
+                    size="sm"
+                    className="text-gray-500 text-[13px] sm:text-[14px] leading-relaxed max-w-md"
+                  >
+                    {item.desc}
+                  </Paragraph>
+                </div>
               </div>
-            </div>
-
-            {/* Item 3: AI Code Generation Built In */}
-            <div className="flex gap-4">
-              <div className="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 self-start flex items-center justify-center rounded-lg bg-[#eaf0ff] border border-[#dbeafe] text-[#3b82f6]">
-                <Code className="h-5 w-5 sm:h-6 sm:w-6 stroke-[3]" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-gray-900 mb-1 text-[15px] sm:text-base lg:text-lg leading-tight">
-                  3. AI Code Generation Built In
-                </h3>
-                <Paragraph
-                  size="sm"
-                  className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
-                >
-                  Generate production-ready frontend, backend, APIs, and
-                  workflows.
-                </Paragraph>
-              </div>
-            </div>
-
-            {/* Item 4: Keep Systems Coherent */}
-            <div className="flex gap-4">
-              <div className="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 self-start flex items-center justify-center rounded-lg bg-[#f5f3ff] border border-[#ddd6fe] text-[#8b5cf6]">
-                <GitBranch className="h-5 w-5 sm:h-6 sm:w-6 stroke-[3]" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-gray-900 mb-1 text-[15px] sm:text-base lg:text-lg leading-tight">
-                  4. Keep Systems Coherent
-                </h3>
-                <Paragraph
-                  size="sm"
-                  className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
-                >
-                  Map dependencies and keep architecture aligned as systems
-                  evolve.
-                </Paragraph>
-              </div>
-            </div>
-
-            {/* Item 5: Human-Controlled Delivery */}
-            <div className="flex gap-4">
-              <div className="h-10 w-10 sm:h-12 sm:w-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-[#eafaf1] border border-[#d1f5e1] text-[#10b981]">
-                <ShieldCheck className="h-5 w-5 sm:h-6 sm:w-6 stroke-[3]" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-gray-900 mb-1 text-[15px] sm:text-base lg:text-lg leading-tight">
-                  5. Human-Controlled Delivery
-                </h3>
-                <Paragraph
-                  size="sm"
-                  className="text-gray-500 text-[13.5px] sm:text-sm leading-relaxed max-w-md"
-                >
-                  Review, guide, and approve every stage.
-                </Paragraph>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Video */}
-          <div className="w-full lg:w-1/2 flex flex-col items-center order-1 lg:order-2">
-            <Video
-              url="https://www.youtube.com/watch?v=nW37QETUq3o"
-              thumbnail={Logo}
-              title="Watch how it works"
-              className="aspect-video w-full max-w-[550px] shadow-xl rounded-2xl border border-gray-200"
-            />
-            <div className="mt-8">
-              <Button
-                asChild
-                className="bg-[#64748b] hover:bg-[#475569] text-white h-11 px-8 font-bold transition-all rounded-md shadow-md"
-              >
-                <Link href="/product">Explore Product</Link>
-              </Button>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* Segment Boxes Section */}
+      {/* Segment Boxes Section - Commented out as requested */}
+      {/* 
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pb-16 sm:pb-24 relative animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
         <div className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 border-t border-dashed border-gray-200 -z-10 hidden xl:block mx-12"></div>
 
@@ -246,6 +230,7 @@ export const Hero = () => {
           })}
         </div>
       </section>
+      */}
     </main>
   );
 };

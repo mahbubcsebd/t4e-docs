@@ -44,7 +44,7 @@ export const audienceDetailsData = {
         desc: 'Move from idea to deployable systems in hours, not weeks of patching tools together.',
       },
     ],
-    ctaHref: '/checkout/indie-devs',
+    ctaHref: 'https://portal.think4ever.com',
     videoLabel: 'See how it works for indie devs',
   },
   saas: {
@@ -93,7 +93,7 @@ export const audienceDetailsData = {
       },
     ],
     videoLabel: 'See how it works for SaaS teams',
-    ctaHref: '/contact-us',
+    ctaHref: 'https://portal.think4ever.com',
   },
   integrators: {
     id: 'integrators',
@@ -141,7 +141,7 @@ export const audienceDetailsData = {
       },
     ],
     videoLabel: 'See how it works for consultants',
-    ctaHref: '/contact-us',
+    ctaHref: 'https://portal.think4ever.com',
   },
   enterpriseIT: {
     id: 'enterpriseIT',
@@ -190,7 +190,7 @@ export const audienceDetailsData = {
       },
     ],
     videoLabel: 'See how it works for enterprise IT',
-    ctaHref: '/contact-us',
+    ctaHref: 'https://portal.think4ever.com',
   },
   modernizeIntegrators: {
     id: 'modernizeIntegrators',
@@ -238,7 +238,7 @@ export const audienceDetailsData = {
       },
     ],
     videoLabel: 'See how it works for modernization partners',
-    ctaHref: '/contact-us',
+    ctaHref: 'https://portal.think4ever.com',
   },
   startups: {
     id: 'startups',
@@ -286,6 +286,6 @@ export const audienceDetailsData = {
       },
     ],
     videoLabel: 'See how it works for startups',
-    ctaHref: '/contact-us',
+    ctaHref: 'https://portal.think4ever.com',
   },
 };

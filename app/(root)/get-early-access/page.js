@@ -4,12 +4,12 @@ import EarlyAccessContainer from '@/components/sections/early-access/EarlyAccess
 export const metadata = constructMetadata({
   title: "Get Early Access - Think4Ever",
   description: "Apply for early access to Think4Ever and join a limited group of companies designing, building, and deploying production-ready systems faster.",
-  canonicalUrl: "https://www.think4ever.com/new_site/get-early-access/",
+  canonicalUrl: "https://www.think4ever.com/get-early-access/",
 });
 
 export default function EarlyAccessPage() {
   return (
-    <div className="min-h-screen bg-[#fcfdfe] py-12 sm:py-20">
+    <div className="min-h-screen w-full bg-[#fcfdfe] py-12 sm:py-20 flex flex-col justify-center items-center">
       <EarlyAccessContainer />
     </div>
   );

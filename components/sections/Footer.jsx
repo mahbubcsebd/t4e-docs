@@ -13,7 +13,7 @@ export const Footer = () => {
             href="/product"
             className="hover:text-white transition-colors"
           >
-            Product
+            How it Works
           </Link>
           <Link
             href="/#build-new"

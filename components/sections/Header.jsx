@@ -26,7 +26,15 @@ import {
 } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import Logo from '@/public/assets/images/think4ever-logo.png';
-import { BookOpen, FileText, Menu } from 'lucide-react';
+import {
+  BookOpen,
+  Code,
+  FileText,
+  Menu,
+  Palette,
+  PlayCircle,
+  Rocket,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -37,13 +45,34 @@ const RESOURCES_DATA = [
     title: 'Blog',
     desc: 'Insights, updates, and deep dives into agentic development.',
     href: '/blog',
-    icon: FileText,
+    icon: BookOpen,
+  },
+];
+
+const DOCS_DATA = [
+  {
+    title: 'Customer Onboarding',
+    desc: 'Get started with Think4Ever and set up your environment.',
+    href: 'https://think4ever.com/docs/onboarding.html',
+    icon: Rocket,
   },
   {
-    title: 'Documentation',
-    desc: 'Guides, API references, and everything you need to build.',
-    href: '/docs',
-    icon: BookOpen,
+    title: 'Think4ever Designer',
+    desc: 'Learn how to use the Designer to map your systems.',
+    href: 'https://think4ever.com/docs/manual_introduction.html',
+    icon: Palette,
+  },
+  {
+    title: 'Think4ever Developer',
+    desc: 'Technical guide for developers building with Think4Ever.',
+    href: 'https://think4ever.com/docs/dev/start_new_project.html',
+    icon: Code,
+  },
+  {
+    title: 'Video Tutorials',
+    desc: 'Watch step-by-step guides on how to use Think4Ever.',
+    href: 'https://think4ever.com/docs/tutorials/user_manual.html',
+    icon: PlayCircle,
   },
 ];
 
@@ -52,7 +81,7 @@ const ListItem = React.forwardRef(
     return (
       <li>
         <NavigationMenuLink asChild>
-          <Link
+          <a
             href={href}
             ref={ref}
             className={cn(
@@ -76,7 +105,7 @@ const ListItem = React.forwardRef(
                 </p>
               </div>
             </div>
-          </Link>
+          </a>
         </NavigationMenuLink>
       </li>
     );
@@ -112,7 +141,7 @@ export const Header = () => {
 
       {/* Desktop Navigation */}
       <div className="hidden lg:flex items-center">
-        <NavigationMenu>
+        <NavigationMenu viewport={false}>
           <NavigationMenuList className="gap-2">
             <NavigationMenuItem>
               <NavigationMenuLink
@@ -140,7 +169,7 @@ export const Header = () => {
                   'font-semibold px-4 transition-colors',
                 )}
               >
-                <Link href="/product">Product</Link>
+                <Link href="/product">How it Works</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
 
@@ -163,6 +192,33 @@ export const Header = () => {
               <NavigationMenuTrigger
                 className={cn(
                   'transition-colors',
+                  isActive('/docs')
+                    ? 'text-[#3b82f6]'
+                    : 'text-gray-500 hover:text-gray-900',
+                )}
+              >
+                Docs
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-2 p-4 outline-none">
+                  {DOCS_DATA.map((item) => (
+                    <ListItem
+                      key={item.title}
+                      title={item.title}
+                      icon={item.icon}
+                      href={item.href}
+                    >
+                      {item.desc}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger
+                className={cn(
+                  'transition-colors',
                   isActive('/blog') || isActive('/docs')
                     ? 'text-gray-900'
                     : 'text-gray-500 hover:text-gray-900',
@@ -170,7 +226,7 @@ export const Header = () => {
               >
                 Resources
               </NavigationMenuTrigger>
-              <NavigationMenuContent>
+              <NavigationMenuContent className="left-auto right-0">
                 <ul className="grid w-[400px] gap-2 p-4 outline-none">
                   {RESOURCES_DATA.map((item) => (
                     <ListItem
@@ -211,7 +267,7 @@ export const Header = () => {
           variant="orange"
           className="hidden sm:flex font-semibold px-5 py-2 h-9 text-sm rounded-md transition-all whitespace-nowrap shadow-sm"
         >
-          <Link href="/get-early-access">Get Early Access</Link>
+          <Link href="https://portal.think4ever.com">Get Early Access</Link>
         </Button>
 
         <Sheet>
@@ -278,7 +334,7 @@ export const Header = () => {
                           : 'text-gray-900',
                       )}
                     >
-                      Product
+                      How it Works
                     </Link>
                   </SheetClose>
                 </AccordionItem>
@@ -300,6 +356,32 @@ export const Header = () => {
                   </SheetClose>
                 </AccordionItem>
 
+                {/* Docs */}
+                <AccordionItem value="docs" className="border-0">
+                  <AccordionTrigger className="py-3 hover:no-underline text-[18px] font-bold text-gray-900">
+                    Docs
+                  </AccordionTrigger>
+                  <AccordionContent className="pt-2 pb-4">
+                    <div className="grid gap-4 pl-4 border-l border-gray-100 ml-1">
+                      {DOCS_DATA.map((item) => (
+                        <SheetClose key={item.title} asChild>
+                          <a 
+                            href={item.href} 
+                            className="group block"
+                          >
+                            <span className="block text-[15px] font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
+                              {item.title}
+                            </span>
+                            <span className="block text-xs text-gray-500 mt-0.5">
+                              {item.desc}
+                            </span>
+                          </a>
+                        </SheetClose>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+
                 {/* Resources */}
                 <AccordionItem value="resources" className="border-0">
                   <AccordionTrigger className="py-3 hover:no-underline text-[18px] font-bold text-gray-900">
@@ -309,14 +391,17 @@ export const Header = () => {
                     <div className="grid gap-4 pl-4 border-l border-gray-100 ml-1">
                       {RESOURCES_DATA.map((item) => (
                         <SheetClose key={item.title} asChild>
-                          <Link href={item.href} className="group block">
+                          <a 
+                            href={item.href} 
+                            className="group block"
+                          >
                             <span className="block text-[15px] font-bold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
                               {item.title}
                             </span>
                             <span className="block text-xs text-gray-500 mt-0.5">
                               {item.desc}
                             </span>
-                          </Link>
+                          </a>
                         </SheetClose>
                       ))}
                     </div>
@@ -330,7 +415,7 @@ export const Header = () => {
                       href="/contact-us"
                       className={cn(
                         'flex py-3 text-[18px] font-bold transition-colors',
-                        isActive('/contact-us')
+                        isActive('/get-early-access')
                           ? 'text-[#3b82f6]'
                           : 'text-gray-900',
                       )}
@@ -348,7 +433,9 @@ export const Header = () => {
                 variant="orange"
                 className="w-full font-bold py-6 rounded-lg text-lg shadow-xl shadow-orange-500/20"
               >
-                <Link href="/get-early-access">Get Early Access</Link>
+                <Link href="https://portal.think4ever.com">
+                  Get Early Access
+                </Link>
               </Button>
             </div>
           </SheetContent>
